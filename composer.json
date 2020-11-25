@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": "^8.0",
         "php-school/php-workshop": "^3.0"
     },
     "require-dev": {
