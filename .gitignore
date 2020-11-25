@@ -1,0 +1,6 @@
+/vendor
+/.idea
+/program.php
+/solution
+/exercises/*/solution/vendor
+.phpunit.result.cache
