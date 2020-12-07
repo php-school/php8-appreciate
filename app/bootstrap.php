@@ -21,12 +21,14 @@ switch (true) {
 
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
+use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');
 
 $app->addExercise(AMatchMadeInHeaven::class);
 $app->addExercise(HaveTheLastSay::class);
+$app->addExercise(PhpPromotion::class);
 
 $art = <<<ART
         _ __ _
