@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "php-school/php-workshop": "^3.0"
+        "php-school/php-workshop": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
@@ -47,11 +47,11 @@
         "unit-tests": "phpunit",
         "cs": [
             "phpcs src --standard=PSR12",
-            "phpcs test --standard=PSR12"
+            "phpcs test --standard=PSR12 --ignore='test/solutions'"
         ],
         "cs-fix": [
             "phpcbf src --standard=PSR12 --encoding=UTF-8",
-            "phpcbf test --standard=PSR12 --encoding=UTF-8"
+            "phpcbf test --standard=PSR12 --encoding=UTF-8 --ignore='test/solutions'"
         ],
         "static": "phpstan --ansi analyse --level max src"
     },
