@@ -30,14 +30,8 @@ class AMatchMadeInHeaven extends AbstractExercise implements
     ProvidesInitialCode,
     SelfCheck
 {
-    /**
-     * @var Parser
-     */
-    private $parser;
-
-    public function __construct(Parser $parser)
+    public function __construct(private Parser $parser)
     {
-        $this->parser = $parser;
     }
 
     public function getName(): string

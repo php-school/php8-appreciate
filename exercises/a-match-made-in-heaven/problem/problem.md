@@ -33,7 +33,6 @@ You should return 0 for any unsupported key presses.
 
 The core logic of the program should not change. eg the key presses and decimal codes.
 
-----------------------------------------------------------------------
 
 ----------------------------------------------------------------------
 ## EXTRA
