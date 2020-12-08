@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [7.3, 7.4, 8.0]
+        php: [8.0]
 
     name: PHP ${{ matrix.php }}
     steps:
@@ -32,7 +32,7 @@ jobs:
       - name: Run phpunit tests
         run: |
           mkdir -p build/logs
-          vendor/bin/simple-phpunit --coverage-clover ./build/logs/clover.xml
+          vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
       - name: Run phpcs
         run: composer cs
 

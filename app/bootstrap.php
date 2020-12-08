@@ -19,12 +19,12 @@ switch (true) {
         throw new RuntimeException('Unable to locate Composer autoloader; please run "composer install".');
 }
 
+use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');
 
-//$app->addExercise(...);
-//$app->addExercise(...);
+$app->addExercise(AMatchMadeInHeaven::class);
 
 $art = <<<ART
         _ __ _
@@ -37,7 +37,7 @@ LEARNING FOR ELEPHPANTS
 ART;
 
 $app->setLogo($art);
-$app->setFgColour('green');
-$app->setBgColour('black');
+$app->setFgColour('white');
+$app->setBgColour('61');
 
 return $app;
