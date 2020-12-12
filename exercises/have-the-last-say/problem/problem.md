@@ -48,11 +48,21 @@ Note: only the values changed from the defaults are specified!
 
 You will need to open the filer for writing before using `fgetcsv` you can do that using `fopen`.
 
+`fgetcsv` will return *one* line at a time
+
+You will most likely need a loop to process all the data in the file.
+
+You will need to keep reading from the file until it has been fully read. `feof` is your friend here to know
+whether there is any data left to read.
+
 Documentation on the `fopen` function can be found by pointing your browser here:
 [https://www.php.net/manual/en/function.fopen.php]()
 
 Documentation on the `fgetcsv` function can be found by pointing your browser here:
 [https://www.php.net/manual/en/function.fgetcsv.php]()
+
+Documentation on the `feof` function can be found by pointing your browser here:
+[https://www.php.net/manual/en/function.feof.php]()
 
 ----------------------------------------------------------------------
 ## EXTRA
