@@ -135,11 +135,11 @@ class HaveTheLastSay extends AbstractExercise implements
         }
 
         if (!isset($funcCall->args[1])) {
-            return Failure::fromNameAndReason($this->getName(), 'The separator argument has not specified');
+            return Failure::fromNameAndReason($this->getName(), 'The separator argument has not been specified');
         }
 
         if (!$funcCall->args[1]->name) {
-            return Failure::fromNameAndReason($this->getName(), 'Second positional argument should not be specified');
+            return Failure::fromNameAndReason($this->getName(), 'The second positional argument should not be specified');
         }
 
         if ($funcCall->args[1]->name->name !== 'separator') {

@@ -56,7 +56,7 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'Second positional argument should not be specified');
+        $this->assertResultsHasFailure(Failure::class, 'The second positional argument should not be specified');
     }
 
     public function testWithMoreThanTwoArguments(): void
@@ -74,7 +74,7 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'The separator argument has not specified');
+        $this->assertResultsHasFailure(Failure::class, 'The separator argument has not been specified');
     }
 
     public function testWithWrongNamedArgument(): void
