@@ -62,10 +62,7 @@ class HaveTheLastSay extends AbstractExercise implements
 
         file_put_contents(
             $file,
-            implode("\n", array_map(
-                fn ($row) => implode("|", $row),
-                $this->getRandomCountries($countries))
-            )
+            implode("\n", array_map(fn ($row) => implode("|", $row), $this->getRandomCountries($countries)))
         );
 
         return [
@@ -73,6 +70,10 @@ class HaveTheLastSay extends AbstractExercise implements
         ];
     }
 
+    /**
+     * @param array<array{0: string, 1: string}> $countries
+     * @return array<array{0: string, 1: string}> $countries
+     */
     private function getRandomCountries(array $countries): array
     {
         return array_intersect_key(
@@ -140,7 +141,10 @@ class HaveTheLastSay extends AbstractExercise implements
         }
 
         if (!$funcCall->args[1]->name) {
-            return Failure::fromNameAndReason($this->getName(), 'The second positional argument should not be specified');
+            return Failure::fromNameAndReason(
+                $this->getName(),
+                'The second positional argument should not be specified'
+            );
         }
 
         if ($funcCall->args[1]->name->name !== 'separator') {

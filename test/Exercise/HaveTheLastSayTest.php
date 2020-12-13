@@ -38,7 +38,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'The stream argument must be specified using a positional parameter');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'The stream argument must be specified using a positional parameter'
+        );
     }
 
     public function testWithStreamAsNamedArgument(): void
@@ -47,7 +50,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'The stream argument must be specified using a positional parameter');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'The stream argument must be specified using a positional parameter'
+        );
     }
 
     public function testWithSecondArgumentSpecified(): void
@@ -56,7 +62,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'The second positional argument should not be specified');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'The second positional argument should not be specified'
+        );
     }
 
     public function testWithMoreThanTwoArguments(): void
@@ -65,7 +74,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'You should only specify the stream and separator arguments, no others');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'You should only specify the stream and separator arguments, no others'
+        );
     }
 
     public function testWithNoSeparatorArgumentSpecified(): void
@@ -74,7 +86,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'The separator argument has not been specified');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'The separator argument has not been specified'
+        );
     }
 
     public function testWithWrongNamedArgument(): void
@@ -83,7 +98,10 @@ class HaveTheLastSayTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'A named argument has been used, but not for the separator argument');
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'A named argument has been used, but not for the separator argument'
+        );
     }
 
     public function testWithNoFgetCsv(): void
