@@ -62,7 +62,7 @@ class HaveTheLastSay extends AbstractExercise implements
 
         file_put_contents(
             $file,
-            implode("\n", array_map(fn ($row) => implode("|", $row), $this->getRandomCountries($countries)))
+            collect($this->getRandomCountries($countries))->map(fn ($row) => implode("|", $row))->implode("\n")
         );
 
         return [
