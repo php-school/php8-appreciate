@@ -12,7 +12,7 @@ Country: Austria, Capital: Vienna
 
 The list of countries will be picked at random, so the CSV will be different each time your program runs.
 
-When using `fgetcsv` there a bunch of arguments which change the behaviour of the way the CSV is parsed. In our case we
+When using `fgetcsv` there's a bunch of arguments which change the behaviour of the way the CSV is parsed. In our case we
 want to change the `separator` argument, which defaults to a comma `,`. We need it to be the
 pipe `|` character. 
 
@@ -46,7 +46,7 @@ Note: only the values changed from the defaults are specified!
 ----------------------------------------------------------------------
 ## HINTS
 
-You will need to open the filer for writing before using `fgetcsv` you can do that using `fopen`.
+You will need to open the file for writing before using `fgetcsv` you can do that using `fopen`.
 
 `fgetcsv` will return *one* line at a time
 
