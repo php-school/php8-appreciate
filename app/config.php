@@ -2,6 +2,7 @@
 
 use PhpSchool\PHP8Appreciate\AstService;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
+use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use Psr\Container\ContainerInterface;
 use function DI\create;
 use function DI\factory;
@@ -14,4 +15,8 @@ return [
     AMatchMadeInHeaven::class => function (ContainerInterface $c) {
         return new AMatchMadeInHeaven($c->get(PhpParser\Parser::class));
     },
+    HaveTheLastSay::class => function (ContainerInterface $c) {
+        return new HaveTheLastSay($c->get(PhpParser\Parser::class));
+    },
+
 ];
