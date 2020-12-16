@@ -35,7 +35,7 @@ class HaveTheLastSay extends AbstractExercise implements
 
     public function getName(): string
     {
-        return 'Have the last say';
+        return 'Have the Last Say';
     }
 
     public function getDescription(): string
