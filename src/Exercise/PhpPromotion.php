@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace PhpSchool\PHP8Appreciate\Exercise;
 
-use _HumbugBoxfb21822734fc\Roave\BetterReflection\Reflection\Adapter\ReflectionObject;
-use PhpParser\Node;
-use PhpParser\NodeTraverser;
-use PhpParser\NodeVisitorAbstract;
+use PhpParser\Node\Stmt\Class_;
+use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
@@ -15,7 +13,6 @@ use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\ProvidesInitialCode;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
-use PhpSchool\PhpWorkshop\ExerciseDispatcher;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
@@ -57,15 +54,12 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
     public function check(Input $input): ResultInterface
     {
-        $statements = $this->parser->parse((string)file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
 
-        if (null === $statements || empty($statements)) {
-            return Failure::fromNameAndReason($this->getName(), 'No code was found');
-        }
+        /** @var Class_|null $node */
+        $className = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class)?->name->name;
 
-        $className = $this->getClassName($statements);
-
-        if (!$className) {
+        if (null === $className) {
             return Failure::fromNameAndReason($this->getName(), 'No class was found');
         }
 
@@ -156,30 +150,5 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         }
 
         return new Success($this->getName());
-    }
-
-    /**
-     * @param Node\Stmt[]
-     * @return string|null
-     */
-    private function getClassName(array $statements) :? string
-    {
-        $traverser = new NodeTraverser();
-        $traverser->addVisitor($visitor = new class extends NodeVisitorAbstract {
-            public bool $hasClassNode = false;
-            public ?string $classname = null;
-
-            public function enterNode(Node $node)
-            {
-                if ($node instanceof Node\Stmt\Class_) {
-                    $this->hasClassNode = true;
-                    $this->classname    = $node->name->name;
-                }
-            }
-        });
-
-        $traverser->traverse($statements);
-
-        return $visitor->classname;
     }
 }
