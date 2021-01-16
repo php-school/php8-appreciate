@@ -70,24 +70,20 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         $params = $params->flatMap(fn (\ReflectionParameter $prop) => [$prop->getName() => $prop]);
 
         if ($missing = array_diff(['visitor', 'key', 'config'], $params->keys()->getArrayCopy())) {
-            $plural = count($missing) > 1;
-            return Failure::fromNameAndReason($this->getName(), sprintf(
-                'Propert%s "%s" %s missing',
-                $plural ? 'ies' : 'y',
-                implode('" & "', $missing),
-                $plural ? 'were' : 'was'
+            return Failure::fromNameAndReason($this->getName(), pluralise(
+                'Property "%s" was missing',
+                $missing,
+                implode('" & "', $missing)
             ));
         }
 
         $promoted = $params->filter(fn (\ReflectionParameter $prop) => $prop->isPromoted());
 
         if ($notPromoted = array_diff(['visitor', 'key'], $promoted->keys()->getArrayCopy())) {
-            $plural = count($notPromoted) > 1;
-            return Failure::fromNameAndReason($this->getName(), sprintf(
-                'Propert%s "%s" %s not promoted',
-                $plural ? 'ies' : 'y',
-                implode('" & "', $notPromoted),
-                $plural ? 'were' : 'was'
+            return Failure::fromNameAndReason($this->getName(), pluralise(
+                'Property "%s" was not promoted',
+                $notPromoted,
+                implode('" & "', $notPromoted)
             ));
         }
 
@@ -101,21 +97,19 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
         // TODO: New test case, basePath changing visibility?!
         if ($notPrivate = array_diff(['visitor', 'key'], $private->keys()->getArrayCopy())) {
-            $plural = count($notPrivate) > 1;
-            return Failure::fromNameAndReason($this->getName(), sprintf(
-                'Propert%s "%s" visibility changed',
-                $plural ? 'ies' : 'y',
+            return Failure::fromNameAndReason($this->getName(), pluralise(
+                'Property "%s" visibility changed',
+                $notPrivate,
                 implode('" & "', $notPrivate)
             ));
         }
 
-        $types = $properties->map(fn (\ReflectionProperty $prop) => $prop->getType()->getName());
+        $types = $properties->map(fn (\ReflectionProperty $prop) => $prop->getType()?->getName());
         $expected = ['visitor' => 'Closure', 'key' => 'string', 'basePath' => 'string'];
         if ([] !== $typeDiff = array_diff_assoc($expected, $types->getArrayCopy())) {
-            $plural = count($typeDiff) > 1;
-            return Failure::fromNameAndReason($this->getName(), sprintf(
-                'Propert%s "%s" should not have changed type',
-                $plural ? 'ies' : 'y',
+            return Failure::fromNameAndReason($this->getName(), pluralise(
+                'Property "%s" should not have changed type',
+                array_keys($typeDiff),
                 implode('" & "', array_keys($typeDiff))
             ));
         }
@@ -141,10 +135,9 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         ]);
 
         if (count($dataFailures)) {
-            $plural = count($dataFailures) > 1;
-            return Failure::fromNameAndReason($this->getName(), sprintf(
-                'Data not correctly set on propert%s "%s"',
-                $plural ? 'ies' : 'y',
+            return Failure::fromNameAndReason($this->getName(), pluralise(
+                'Data not correctly set on property "%s"',
+                array_keys($dataFailures),
                 implode('" & "', array_keys($dataFailures))
             ));
         }
