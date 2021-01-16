@@ -95,10 +95,9 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         $properties = $properties->flatMap(fn (\ReflectionProperty $prop) => [$prop->getName() => $prop]);
         $private = $properties->filter(fn (\ReflectionProperty $prop) => $prop->isPrivate());
 
-        // TODO: New test case, basePath changing visibility?!
         if ($notPrivate = array_diff(['visitor', 'key'], $private->keys()->getArrayCopy())) {
             return Failure::fromNameAndReason($this->getName(), pluralise(
-                'Property "%s" visibility changed',
+                'Visibility changed for property %s',
                 $notPrivate,
                 implode('" & "', $notPrivate)
             ));

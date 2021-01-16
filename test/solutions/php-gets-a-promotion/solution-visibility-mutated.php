@@ -2,7 +2,7 @@
 
 class RowVisitorPropertyTypeChanged
 {
-    protected string $basePath;
+    private string $basePath;
 
     public function __construct(
         private \Closure $visitor,

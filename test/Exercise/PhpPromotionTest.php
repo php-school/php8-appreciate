@@ -72,7 +72,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(Failure::class, 'Property "key" visibility changed');
+        $this->assertResultsHasFailure(Failure::class, 'Visibility changed for properties "key" & "basePath"');
     }
 
     public function testBadPropertyPromotion()
