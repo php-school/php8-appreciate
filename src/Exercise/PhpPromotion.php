@@ -91,15 +91,23 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
             return Failure::fromNameAndReason($this->getName(), 'Property "config" should not be promoted');
         }
 
-        $properties = collect($reflectionClass->getProperties());
-        $properties = $properties->flatMap(fn (\ReflectionProperty $prop) => [$prop->getName() => $prop]);
-        $private = $properties->filter(fn (\ReflectionProperty $prop) => $prop->isPrivate());
+        $expectedProperties = [
+            'basePath' => 'protected',
+            'key' => 'private',
+            'visitor' => 'private',
+        ];
 
-        if ($notPrivate = array_diff(['visitor', 'key'], $private->keys()->getArrayCopy())) {
+        $properties = collect($reflectionClass->getProperties());
+        $properties = $properties->flatMap(fn (\ReflectionProperty $prop) => [
+            $prop->getName() => $this->getPropertyVisibility($prop)
+        ])->getArrayCopy();
+        ksort($properties);
+
+        if ($changedVisibility = array_keys(array_diff_assoc($expectedProperties, $properties))) {
             return Failure::fromNameAndReason($this->getName(), pluralise(
-                'Visibility changed for property %s',
-                $notPrivate,
-                implode('" & "', $notPrivate)
+                'Visibility changed for property "%s"',
+                $changedVisibility,
+                implode('" & "', $changedVisibility)
             ));
         }
 
@@ -142,5 +150,14 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         }
 
         return new Success($this->getName());
+    }
+
+    private function getPropertyVisibility(\ReflectionProperty $prop): string
+    {
+        return match (true) {
+            $prop->isPrivate() => 'private',
+            $prop->isProtected() => 'protected',
+        default => 'public',
+        };
     }
 }
