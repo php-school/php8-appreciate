@@ -98,12 +98,11 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         ];
 
         $properties = collect($reflectionClass->getProperties());
-        $properties = $properties->flatMap(fn (\ReflectionProperty $prop) => [
+        $visibilities = $properties->flatMap(fn (\ReflectionProperty $prop) => [
             $prop->getName() => $this->getPropertyVisibility($prop)
-        ])->getArrayCopy();
-        ksort($properties);
+        ])->ksort();
 
-        if ($changedVisibility = array_keys(array_diff_assoc($expectedProperties, $properties))) {
+        if ($changedVisibility = array_keys(array_diff_assoc($expectedProperties, $visibilities->getArrayCopy()))) {
             return Failure::fromNameAndReason($this->getName(), pluralise(
                 'Visibility changed for property "%s"',
                 $changedVisibility,
@@ -111,7 +110,9 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
             ));
         }
 
-        $types = $properties->map(fn (\ReflectionProperty $prop) => $prop->getType()?->getName());
+        $types = $properties->flatMap(fn (\ReflectionProperty $prop) => [
+            $prop->getName() => $this->getPropertyType($prop)
+        ]);
         $expected = ['visitor' => 'Closure', 'key' => 'string', 'basePath' => 'string'];
         if ([] !== $typeDiff = array_diff_assoc($expected, $types->getArrayCopy())) {
             return Failure::fromNameAndReason($this->getName(), pluralise(
@@ -132,7 +133,9 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
         $actual = $properties
             ->each(fn (\ReflectionProperty $prop) => $prop->setAccessible(true))
-            ->map(fn (\ReflectionProperty $prop) => $prop->isInitialized($obj) ? $prop->getValue($obj) : null)
+            ->flatMap(fn (\ReflectionProperty $prop) => [
+                $prop->getName() => $prop->isInitialized($obj) ? $prop->getValue($obj) : null
+            ])
             ->getArrayCopy();
 
         $dataFailures = array_filter([
@@ -159,5 +162,16 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
             $prop->isProtected() => 'protected',
         default => 'public',
         };
+    }
+
+    private function getPropertyType(\ReflectionProperty $prop): string
+    {
+        $type = $prop->getType();
+
+        if (null === $type || !$type instanceof \ReflectionNamedType) {
+            throw new \RuntimeException('Invalid property "%s"', $prop->getName());
+        }
+        /** @var \ReflectionNamedType $type */
+        return $type->getName();
     }
 }
