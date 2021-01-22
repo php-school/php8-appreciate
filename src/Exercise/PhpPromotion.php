@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpSchool\PHP8Appreciate\Exercise;
 
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
@@ -54,17 +55,18 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
     public function check(Input $input): ResultInterface
     {
+        /** @var array<Stmt> $statements */
         $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        /** @var Class_|null $classNode */
+        $classNode = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class);
 
-        /** @var Class_|null $node */
-        $className = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class)?->name->name;
-
-        if (null === $className) {
+        if (null === $classNode || null === $className = $classNode->name?->name) {
             return Failure::fromNameAndReason($this->getName(), 'No class was found');
         }
 
         (static fn () => require $input->getRequiredArgument('program'))();
 
+        /** @var class-string $className */
         $reflectionClass = new ReflectionClass($className);
         $params = collect($reflectionClass->getMethod('__construct')->getParameters());
         $params = $params->flatMap(fn (\ReflectionParameter $prop) => [$prop->getName() => $prop]);
@@ -138,6 +140,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
             ])
             ->getArrayCopy();
 
+        /** @var array{string?: string} $dataFailures */
         $dataFailures = array_filter([
             'visitor' => $args['visitor'] !== $actual['visitor'],
             'key' => $args['key'] !== $actual['key'],
@@ -169,7 +172,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         $type = $prop->getType();
 
         if (null === $type || !$type instanceof \ReflectionNamedType) {
-            throw new \RuntimeException('Invalid property "%s"', $prop->getName());
+            throw new \RuntimeException(sprintf('Invalid property "%s"', $prop->getName()));
         }
         /** @var \ReflectionNamedType $type */
         return $type->getName();
