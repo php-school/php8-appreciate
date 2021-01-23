@@ -42,7 +42,8 @@ jobs:
       - name: Install with workshop-manager
         run: |
           curl -O https://php-school.github.io/workshop-manager/workshop-manager.phar
-          workshop-manager install php8appreciate $GITHUB_HEAD_REF
+          chmod +x workshop-manager
+          ./workshop-manager install php8appreciate $GITHUB_HEAD_REF
 
       - name: Coverage upload
         if: matrix.php == '8.0'
