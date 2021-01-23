@@ -41,7 +41,7 @@ class AMatchMadeInHeaven extends AbstractExercise implements
 
     public function getDescription(): string
     {
-        return 'A Match Made In Heaven';
+        return 'PHP 8\'s Match Expression';
     }
 
     public function getArgs(): array
