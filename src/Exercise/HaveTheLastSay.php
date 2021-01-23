@@ -89,7 +89,7 @@ class HaveTheLastSay extends AbstractExercise implements
 
     public function getType(): ExerciseType
     {
-        return new ExerciseType(ExerciseType::CLI);
+        return ExerciseType::CLI();
     }
 
     public function getRequiredFunctions(): array

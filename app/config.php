@@ -3,6 +3,7 @@
 use PhpSchool\PHP8Appreciate\AstService;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
+use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use Psr\Container\ContainerInterface;
 use function DI\create;
 use function DI\factory;
@@ -18,5 +19,7 @@ return [
     HaveTheLastSay::class => function (ContainerInterface $c) {
         return new HaveTheLastSay($c->get(PhpParser\Parser::class));
     },
-
+    PhpPromotion::class => function (ContainerInterface $c) {
+        return new PhpPromotion($c->get(PhpParser\Parser::class));
+    },
 ];

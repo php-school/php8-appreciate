@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f8deae51edc35863c0135f1b7d08d35",
+    "content-hash": "15f3fc003f78453676d09cc0a90cacb2",
     "packages": [
         {
             "name": "aydin-hassan/cli-md-renderer",
@@ -1035,12 +1035,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "dc62895c36b876e042b803bab46d0b260d7407dc"
+                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/dc62895c36b876e042b803bab46d0b260d7407dc",
-                "reference": "dc62895c36b876e042b803bab46d0b260d7407dc",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/d6374abadb256c86d60fa66919a7c1183177e5f6",
+                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6",
                 "shasum": ""
             },
             "require": {
@@ -1110,7 +1110,7 @@
                 "issues": "https://github.com/php-school/php-workshop/issues",
                 "source": "https://github.com/php-school/php-workshop/tree/master"
             },
-            "time": "2020-12-13T16:54:31+00:00"
+            "time": "2021-01-21T13:49:07+00:00"
         },
         {
             "name": "php-school/terminal",
@@ -1898,16 +1898,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae"
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/726c026815142e4f8677b7cb7f2249c9ffb7ecae",
-                "reference": "726c026815142e4f8677b7cb7f2249c9ffb7ecae",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
+                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
                 "shasum": ""
             },
             "require": {
@@ -1943,9 +1943,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.0.3"
+                "source": "https://github.com/phar-io/version/tree/3.0.4"
             },
-            "time": "2020-11-30T09:21:21+00:00"
+            "time": "2020-12-13T23:18:30+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2174,16 +2174,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.62",
+            "version": "0.12.68",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "632393159335bbbdd7ca07d19b3ad50d76aa7fd8"
+                "reference": "ddbe01af0706ee094c3f1ce9730b35aebb508d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/632393159335bbbdd7ca07d19b3ad50d76aa7fd8",
-                "reference": "632393159335bbbdd7ca07d19b3ad50d76aa7fd8",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ddbe01af0706ee094c3f1ce9730b35aebb508d3d",
+                "reference": "ddbe01af0706ee094c3f1ce9730b35aebb508d3d",
                 "shasum": ""
             },
             "require": {
@@ -2214,7 +2214,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.62"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.68"
             },
             "funding": [
                 {
@@ -2230,7 +2230,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-13T13:59:38+00:00"
+            "time": "2021-01-18T12:29:17+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3722,6 +3722,56 @@
                 }
             ],
             "time": "2020-07-12T23:59:07+00:00"
+        },
+        {
+            "name": "timeweb/phpstan-enum",
+            "version": "v2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timeweb/phpstan-enum.git",
+                "reference": "8c283460dff94cc0475eaa2e8002b3149dc988b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timeweb/phpstan-enum/zipball/8c283460dff94cc0475eaa2e8002b3149dc988b9",
+                "reference": "8c283460dff94cc0475eaa2e8002b3149dc988b9",
+                "shasum": ""
+            },
+            "require": {
+                "myclabs/php-enum": "^1.2",
+                "php": "~7.1|^8.0",
+                "phpstan/phpstan": "^0.10|^0.11|^0.12.34"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0|^9.0"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Timeweb\\PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Enum class reflection extension for PHPStan",
+            "keywords": [
+                "PHPStan",
+                "enum"
+            ],
+            "support": {
+                "issues": "https://github.com/timeweb/phpstan-enum/issues",
+                "source": "https://github.com/timeweb/phpstan-enum/tree/v2.2.4"
+            },
+            "time": "2020-12-14T21:29:06+00:00"
         },
         {
             "name": "webmozart/assert",
