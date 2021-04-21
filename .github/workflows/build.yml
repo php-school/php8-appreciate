@@ -1,4 +1,4 @@
-name: MyWorkshop
+name: PHP8Appreciate
 
 on:
   push:
@@ -38,6 +38,13 @@ jobs:
 
       - name: Run phpstan
         run: composer static
+
+      - name: Install with workshop-manager
+        run: |
+          curl -O https://php-school.github.io/workshop-manager/workshop-manager.phar
+          chmod +x workshop-manager.phar
+          ./workshop-manager.phar install php8appreciate ${{ github.head_ref }} ${{github.event.pull_request.head.repo.html_url}}
+          ./workshop-manager.phar installed
 
       - name: Coverage upload
         if: matrix.php == '8.0'

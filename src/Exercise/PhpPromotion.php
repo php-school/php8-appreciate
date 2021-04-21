@@ -163,7 +163,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         return match (true) {
             $prop->isPrivate() => 'private',
             $prop->isProtected() => 'protected',
-        default => 'public',
+            default => 'public',
         };
     }
 
