@@ -43,7 +43,7 @@ jobs:
         run: |
           curl -O https://php-school.github.io/workshop-manager/workshop-manager.phar
           chmod +x workshop-manager.phar
-          ./workshop-manager.phar install php8appreciate ${{GITHUB_HEAD_REF}} ${{github.event.pull_request.head.repo.html_url}}
+          ./workshop-manager.phar install php8appreciate ${GITHUB_HEAD_REF} ${{github.event.pull_request.head.repo.html_url}}
 
       - name: Coverage upload
         if: matrix.php == '8.0'
