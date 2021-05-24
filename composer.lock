@@ -1035,16 +1035,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6"
+                "reference": "c496fec74e4dbeb06a030f0e90646d9057d93ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/d6374abadb256c86d60fa66919a7c1183177e5f6",
-                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/c496fec74e4dbeb06a030f0e90646d9057d93ee4",
+                "reference": "c496fec74e4dbeb06a030f0e90646d9057d93ee4",
                 "shasum": ""
             },
             "require": {
                 "aydin-hassan/cli-md-renderer": "^2.4",
+                "ext-json": "*",
                 "ext-pdo": "*",
                 "ext-pdo_sqlite": "*",
                 "fakerphp/faker": "^1.10.1",
@@ -1110,7 +1111,7 @@
                 "issues": "https://github.com/php-school/php-workshop/issues",
                 "source": "https://github.com/php-school/php-workshop/tree/master"
             },
-            "time": "2021-01-21T13:49:07+00:00"
+            "time": "2021-05-21T20:56:23+00:00"
         },
         {
             "name": "php-school/terminal",
