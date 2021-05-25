@@ -2,6 +2,7 @@
 
 use PhpSchool\PHP8Appreciate\AstService;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
+use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use Psr\Container\ContainerInterface;
@@ -21,5 +22,8 @@ return [
     },
     PhpPromotion::class => function (ContainerInterface $c) {
         return new PhpPromotion($c->get(PhpParser\Parser::class));
+    },
+    CautionWithCatches::class => function (ContainerInterface $c) {
+        return new CautionWithCatches($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     },
 ];

@@ -1035,16 +1035,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6"
+                "reference": "c496fec74e4dbeb06a030f0e90646d9057d93ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/d6374abadb256c86d60fa66919a7c1183177e5f6",
-                "reference": "d6374abadb256c86d60fa66919a7c1183177e5f6",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/c496fec74e4dbeb06a030f0e90646d9057d93ee4",
+                "reference": "c496fec74e4dbeb06a030f0e90646d9057d93ee4",
                 "shasum": ""
             },
             "require": {
                 "aydin-hassan/cli-md-renderer": "^2.4",
+                "ext-json": "*",
                 "ext-pdo": "*",
                 "ext-pdo_sqlite": "*",
                 "fakerphp/faker": "^1.10.1",
@@ -1110,7 +1111,7 @@
                 "issues": "https://github.com/php-school/php-workshop/issues",
                 "source": "https://github.com/php-school/php-workshop/tree/master"
             },
-            "time": "2021-01-21T13:49:07+00:00"
+            "time": "2021-05-21T20:56:23+00:00"
         },
         {
             "name": "php-school/terminal",
@@ -2174,16 +2175,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.68",
+            "version": "0.12.88",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ddbe01af0706ee094c3f1ce9730b35aebb508d3d"
+                "reference": "464d1a81af49409c41074aa6640ed0c4cbd9bb68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ddbe01af0706ee094c3f1ce9730b35aebb508d3d",
-                "reference": "ddbe01af0706ee094c3f1ce9730b35aebb508d3d",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/464d1a81af49409c41074aa6640ed0c4cbd9bb68",
+                "reference": "464d1a81af49409c41074aa6640ed0c4cbd9bb68",
                 "shasum": ""
             },
             "require": {
@@ -2214,7 +2215,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.68"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.88"
             },
             "funding": [
                 {
@@ -2230,7 +2231,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-18T12:29:17+00:00"
+            "time": "2021-05-17T12:24:49+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

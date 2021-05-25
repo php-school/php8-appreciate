@@ -25,6 +25,7 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: composer:v2,pecl
           extensions: pdo_sqlite
+          ini-values: opcache.enable=0
 
       - name: Install Dependencies
         run: composer update
