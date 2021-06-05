@@ -1,6 +1,6 @@
 <?php
 
-function adder(string|float|int ...$numbers)
+function adder(string|float|int ...$numbers): float
 {
     return array_sum($numbers);
 }
