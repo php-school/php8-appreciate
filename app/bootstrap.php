@@ -24,6 +24,7 @@ use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');
@@ -33,6 +34,7 @@ $app->addExercise(HaveTheLastSay::class);
 $app->addExercise(PhpPromotion::class);
 $app->addExercise(CautionWithCatches::class);
 $app->addExercise(LordOfTheStrings::class);
+$app->addExercise(UniteTheTypes::class);
 
 $art = <<<ART
         _ __ _

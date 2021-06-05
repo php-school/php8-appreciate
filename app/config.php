@@ -5,11 +5,11 @@ use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use Psr\Container\ContainerInterface;
 
 use function DI\create;
 use function DI\factory;
-use function DI\object;
 
 return [
     'basePath' => __DIR__ . '/../',
@@ -29,5 +29,8 @@ return [
     },
     LordOfTheStrings::class => function (ContainerInterface $c) {
         return new LordOfTheStrings($c->get(\Faker\Generator::class));
+    },
+    UniteTheTypes::class => function (ContainerInterface $c) {
+        return new UniteTheTypes($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     },
 ];
