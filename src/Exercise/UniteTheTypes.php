@@ -1,6 +1,5 @@
 <?php
 
-
 namespace PhpSchool\PHP8Appreciate\Exercise;
 
 use PhpParser\Node\Identifier;
@@ -29,9 +28,6 @@ class UniteTheTypes extends AbstractExercise implements
     SelfCheck,
     SubmissionPatchable
 {
-
-    private float $total;
-
     public function __construct(private Parser $parser, private FakerGenerator $faker)
     {
     }
@@ -62,9 +58,7 @@ class UniteTheTypes extends AbstractExercise implements
             },
             range(0, random_int(5, 15))
         );
-
-        $this->total = array_sum($numbers);
-
+        
         return [$numbers];
     }
 
