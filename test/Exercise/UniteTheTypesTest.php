@@ -117,4 +117,11 @@ class UniteTheTypesTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasSuccessful();
     }
+
+    public function testSuccessfulSolutionWithStrictTypes(): void
+    {
+        $this->runExercise('correct-union-type-strict-types.php');
+
+        $this->assertVerifyWasSuccessful();
+    }
 }
