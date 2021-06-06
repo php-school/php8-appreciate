@@ -73,6 +73,18 @@ class UniteTheTypesTest extends WorkshopExerciseTest
         );
     }
 
+    public function testFailureWhenAdderFunctionHasCorrectUnionWithExtraTypes(): void
+    {
+        $this->runExercise('incorrect-union-extra-type.php');
+
+        $this->assertVerifyWasNotSuccessful();
+
+        $this->assertResultsHasFailure(
+            Failure::class,
+            'Union type is incorrect, it should only accept the required types'
+        );
+    }
+
     public function testFailureWhenAdderFunctionParamIsNotVariadic(): void
     {
         $this->runExercise('union-type-param-not-variadic.php');
