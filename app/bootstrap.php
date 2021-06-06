@@ -23,7 +23,7 @@ use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
-use PhpSchool\PHP8AppreciateTest\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');

@@ -1,12 +1,12 @@
 <?php
 
-use PhpSchool\PHP8Appreciate\AstService;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
-use PhpSchool\PHP8AppreciateTest\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use Psr\Container\ContainerInterface;
+
 use function DI\create;
 use function DI\factory;
 use function DI\object;

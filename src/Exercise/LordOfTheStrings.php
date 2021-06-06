@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpSchool\PHP8AppreciateTest\Exercise;
+namespace PhpSchool\PHP8Appreciate\Exercise;
 
 use Faker\Generator;
 use PhpSchool\PhpWorkshop\Check\ComposerCheck;
