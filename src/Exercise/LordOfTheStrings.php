@@ -54,15 +54,18 @@ class LordOfTheStrings extends AbstractExercise implements
 
     public function getArgs(): array
     {
+        /** @var string $word */
         $word = $this->faker->words(1, true);
 
+        /** @var string $sentence */
         $sentence = $this->faker->words(random_int(2, 5), true);
-
-        $sentence = match ($this->faker->numberBetween(0, 3)) {
-            0 => "$word $sentence",
-            1 => "$sentence $word",
-            2 => $this->insertWordInSentenceRandomly($word, $sentence),
-            3 => $sentence
+        
+        $options = ['start', 'end', 'anywhere', 'nowhere'];
+        $sentence = match ($options[array_rand($options)]) {
+            'start' => "$word $sentence",
+            'end' => "$sentence $word",
+            'anywhere' => $this->insertWordInSentenceRandomly($word, $sentence),
+            'nowhere' => $sentence
         };
 
         return [
