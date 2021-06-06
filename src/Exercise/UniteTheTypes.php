@@ -65,15 +65,14 @@ class UniteTheTypes extends AbstractExercise implements
     public function getPatch(): Patch
     {
         $code = <<<'CODE'
-        declare(strict_types=1);
-        
-        $argv = array_map(function ($value) {
+        $first = array_shift($argv);
+        $argv = array_merge([$first], array_map(function ($value) {
             return match (true) {
                 (int) $value != (float) $value => (float) $value,
                 (bool) random_int(0, 1) => (int) $value,
                 default => (string) $value
             };
-        }, $argv);
+        }, $argv)); 
         CODE;
 
         $casterInsertion = new CodeInsertion(CodeInsertion::TYPE_BEFORE, $code);
