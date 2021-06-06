@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "php-school/php-workshop": "dev-master"
+        "php-school/php-workshop": "dev-composer-install-for-test-solutions"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
