@@ -110,4 +110,11 @@ class UniteTheTypesTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasSuccessful();
     }
+
+    public function testSuccessfulSolutionWithFloatReturnType(): void
+    {
+        $this->runExercise('correct-union-type-float-return.php');
+
+        $this->assertVerifyWasSuccessful();
+    }
 }
