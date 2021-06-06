@@ -1,0 +1,7 @@
+{
+  "name": "php8-appreciate/lord-of-the-strings",
+  "description": "String manipulation with Composer",
+  "require": {
+    "symfony/console": "^5"
+  }
+}
