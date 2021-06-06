@@ -51,7 +51,7 @@ class UniteTheTypes extends AbstractExercise implements
     {
         $numbers = array_map(
             function (): string {
-                if ($this->faker->boolean) {
+                if ($this->faker->boolean()) {
                     return (string) $this->faker->numberBetween(0, 50);
                 }
                 return (string) $this->faker->randomFloat(3, 0, 50);
