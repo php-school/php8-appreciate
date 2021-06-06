@@ -11,7 +11,6 @@ use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
 class CautionWithCatchesTest extends WorkshopExerciseTest
 {
-
     public function getExerciseClass(): string
     {
         return CautionWithCatches::class;
@@ -22,7 +21,7 @@ class CautionWithCatchesTest extends WorkshopExerciseTest
         return require __DIR__ . '/../../app/bootstrap.php';
     }
 
-    public function testFailureWhenNoTryCatch()
+    public function testFailureWhenNoTryCatch(): void
     {
         $this->runExercise('no-try-catch.php');
 
@@ -31,7 +30,7 @@ class CautionWithCatchesTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'No try/catch statement was found');
     }
 
-    public function testFailureWhenCapturingException()
+    public function testFailureWhenCapturingException(): void
     {
         $this->runExercise('captures-exception.php');
 
@@ -40,7 +39,7 @@ class CautionWithCatchesTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Exception variable was captured');
     }
 
-    public function testSuccessfulSolution()
+    public function testSuccessfulSolution(): void
     {
         $this->runExercise('solution.php');
 
