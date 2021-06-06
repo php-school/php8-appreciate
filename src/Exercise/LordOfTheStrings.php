@@ -59,7 +59,7 @@ class LordOfTheStrings extends AbstractExercise implements
 
         /** @var string $sentence */
         $sentence = $this->faker->words(random_int(2, 5), true);
-        
+
         $options = ['start', 'end', 'anywhere', 'nowhere'];
         $sentence = match ($options[array_rand($options)]) {
             'start' => "$word $sentence",
