@@ -7,5 +7,6 @@
   </coverage>
   <testsuite name="My PHP Workshop Test Suite">
     <directory>./test</directory>
+    <exclude>./test/solutions</exclude>
   </testsuite>
 </phpunit>
