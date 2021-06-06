@@ -77,7 +77,9 @@ class UniteTheTypes extends AbstractExercise implements
 
         $casterInsertion = new CodeInsertion(CodeInsertion::TYPE_BEFORE, $code);
 
-        return (new Patch())->withInsertion($casterInsertion);
+        return (new Patch())
+            ->withTransformer(new Patch\ForceStrictTypes())
+            ->withInsertion($casterInsertion);
     }
 
     public function check(Input $input): ResultInterface
