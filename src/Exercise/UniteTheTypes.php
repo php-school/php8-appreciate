@@ -52,13 +52,13 @@ class UniteTheTypes extends AbstractExercise implements
         $numbers = array_map(
             function (): string {
                 if ($this->faker->boolean) {
-                    return $this->faker->numberBetween(0, 50);
+                    return (string) $this->faker->numberBetween(0, 50);
                 }
-                return $this->faker->randomFloat(3, 0, 50);
+                return (string) $this->faker->randomFloat(3, 0, 50);
             },
             range(0, random_int(5, 15))
         );
-        
+
         return [$numbers];
     }
 
@@ -132,6 +132,13 @@ class UniteTheTypes extends AbstractExercise implements
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'Union type is incorrect, it should only accept the required types'
+            );
+        }
+
+        if (!$firstParam->variadic) {
+            return Failure::fromNameAndReason(
+                $this->getName(),
+                'Function adder\'s first parameter should be variadic in order to accept multiple arguments'
             );
         }
 
