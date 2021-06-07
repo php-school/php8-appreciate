@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c33e0e48b4f3a1cfc8ea91dedf52962",
+    "content-hash": "15f3fc003f78453676d09cc0a90cacb2",
     "packages": [
         {
             "name": "aydin-hassan/cli-md-renderer",
@@ -1047,16 +1047,16 @@
         },
         {
             "name": "php-school/php-workshop",
-            "version": "dev-composer-install-for-test-solutions",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "a9a5caa5b12e3faeacd420b05d76c9339e0b2779"
+                "reference": "2677e76882e14dbd95c21411928bb40077c506a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/a9a5caa5b12e3faeacd420b05d76c9339e0b2779",
-                "reference": "a9a5caa5b12e3faeacd420b05d76c9339e0b2779",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/2677e76882e14dbd95c21411928bb40077c506a9",
+                "reference": "2677e76882e14dbd95c21411928bb40077c506a9",
                 "shasum": ""
             },
             "require": {
@@ -1087,6 +1087,7 @@
                 "squizlabs/php_codesniffer": "^3.4",
                 "yoast/phpunit-polyfills": "^0.2.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -1125,9 +1126,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-school/php-workshop/issues",
-                "source": "https://github.com/php-school/php-workshop/tree/composer-install-for-test-solutions"
+                "source": "https://github.com/php-school/php-workshop/tree/master"
             },
-            "time": "2021-06-06T18:20:13+00:00"
+            "time": "2021-06-07T17:29:53+00:00"
         },
         {
             "name": "php-school/terminal",
