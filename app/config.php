@@ -1,6 +1,7 @@
 <?php
 
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
+use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
@@ -36,5 +37,8 @@ return [
     },
     InfiniteDivisions::class => function (ContainerInterface $c) {
         return new InfiniteDivisions($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
+    },
+    ASafeSpaceForNulls::class => function (ContainerInterface $c) {
+        return new ASafeSpaceForNulls($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     },
 ];
