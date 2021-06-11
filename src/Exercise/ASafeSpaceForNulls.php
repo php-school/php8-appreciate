@@ -16,6 +16,7 @@ use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Expression;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
+use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
@@ -23,6 +24,7 @@ use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\SubmissionPatchable;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FileComparisonExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
+use PhpSchool\PhpWorkshop\ExerciseDispatcher;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Patch;
 use PhpSchool\PhpWorkshop\Result\Failure;
@@ -58,6 +60,11 @@ class ASafeSpaceForNulls extends AbstractExercise implements
     public function getArgs(): array
     {
         return [];
+    }
+
+    public function configure(ExerciseDispatcher $dispatcher): void
+    {
+        $dispatcher->requireCheck(FileComparisonCheck::class);
     }
 
     public function getPatch(): Patch
@@ -172,7 +179,7 @@ class ASafeSpaceForNulls extends AbstractExercise implements
             );
         }
 
-        if (count($addressFetch) !== 3) {
+        if (count($addressFetch) < 3) {
             return new Failure(
                 $this->getName(),
                 'The $user->address property should always be accessed with the null safe operator'
