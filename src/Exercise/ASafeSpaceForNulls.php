@@ -38,6 +38,9 @@ class ASafeSpaceForNulls extends AbstractExercise implements
     FileComparisonExerciseCheck,
     SelfCheck
 {
+
+    private ?Patch $patch = null;
+
     public function __construct(private Parser $parser, private FakerGenerator $faker)
     {
     }
@@ -69,6 +72,11 @@ class ASafeSpaceForNulls extends AbstractExercise implements
 
     public function getPatch(): Patch
     {
+        if ($this->patch) {
+            return $this->patch;
+        }
+
+
         $factory = new BuilderFactory();
 
         $statements = [];
@@ -158,7 +166,7 @@ class ASafeSpaceForNulls extends AbstractExercise implements
             }
         }
 
-        return (new Patch())
+        return $this->patch = (new Patch())
             ->withTransformer(function (array $originalStatements) use ($statements) {
                 return array_merge($statements, $originalStatements);
             });

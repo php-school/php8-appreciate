@@ -103,18 +103,20 @@ class ASafeSpaceForNullsTest extends WorkshopExerciseTest
 
         $this->assertVerifyWasNotSuccessful();
 
-        $this->assertResultsHasFailure(
-            Failure::class,
-            'File: "users.csv" does not exist'
-        );
+        $this->assertResultsHasFailureAndMatches(
+            FileComparisonFailure::class,
+            function (FileComparisonFailure $failure) {
+                self::assertEquals('users.csv', $failure->getFileName());
 
-//        $this->assertResultsHasFailureAndMatches(
-//            FileComparisonFailure::class,
-//            function (FileComparisonFailure $failure) {
-//                self::assertEquals('users.csv', $failure->getFileName());
-//
-//                return true;
-//            }
-//        );
+                return true;
+            }
+        );
+    }
+
+    public function testWithCorrectSolution(): void
+    {
+        $this->runExercise('correct-solution.php');
+
+        $this->assertVerifyWasSuccessful();
     }
 }
