@@ -1,8 +1,8 @@
 Create a program that exports a `User` object instance to a CSV file using the null safe operator to access it's member properties.
 
-You will have a variable named `$user` available in your PHP script. We will put it there, each time your program runs  and it will be populated with random data each time it runs.
+You will have a variable named `$user` available in your PHP script. It is placed there automatically each time your program runs. It is populated with random data.
 
-Sometimes, a number of the properties may not exist and will be null. 
+Sometimes, properties won't have a value set and will be null.
 
 With the null safe operator it is possible to access variables like so:
 
@@ -10,7 +10,7 @@ With the null safe operator it is possible to access variables like so:
 $capitalPopulation = $country?->capital?->population;
 ```
 
-If the `capital` property is null, the variable `$capitalPopulation` will also contain null. Previously, without the null safe operator this would be achieved like so:
+If the `capital` property is null, the variable `$capitalPopulation` will also be null. Previously, without the null safe operator, this would be achieved like so:
 
 ```php
 $capitalPopulation = null;
@@ -70,7 +70,7 @@ Documentation on the Null Safe Operator can be found by pointing your browser he
 ----------------------------------------------------------------------
 ## EXTRA
 
-We have not given any hints regarding writing to a CSV file, as we are not testing you on that. You can do it however you please.
+We have not given any hints regarding writing to a CSV file, as we are not testing you on that. How you achieve that (`fputcsv`, `file_put_contents`, etc) is up to you.
 
 Therefore, it is up to you to figure out how to write a CSV if you don't already know :)
 
