@@ -8,6 +8,7 @@ use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use Psr\Container\ContainerInterface;
 
@@ -44,5 +45,8 @@ return [
     },
     AllMixedUp::class => function (ContainerInterface $c) {
         return new AllMixedUp($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
+    },
+    TheReturnOfStatic::class => function (ContainerInterface $c) {
+        return new TheReturnOfStatic($c->get(PhpParser\Parser::class));
     }
 ];
