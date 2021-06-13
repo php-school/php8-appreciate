@@ -19,6 +19,7 @@ switch (true) {
         throw new RuntimeException('Unable to locate Composer autoloader; please run "composer install".');
 }
 
+use PhpSchool\PHP8Appreciate\Exercise\AllMixedUp;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
@@ -39,6 +40,7 @@ $app->addExercise(LordOfTheStrings::class);
 $app->addExercise(UniteTheTypes::class);
 $app->addExercise(InfiniteDivisions::class);
 $app->addExercise(ASafeSpaceForNulls::class);
+$app->addExercise(AllMixedUp::class);
 
 $art = <<<ART
         _ __ _

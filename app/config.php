@@ -1,5 +1,6 @@
 <?php
 
+use PhpSchool\PHP8Appreciate\Exercise\AllMixedUp;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
@@ -41,4 +42,7 @@ return [
     ASafeSpaceForNulls::class => function (ContainerInterface $c) {
         return new ASafeSpaceForNulls($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     },
+    AllMixedUp::class => function (ContainerInterface $c) {
+        return new AllMixedUp($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
+    }
 ];
