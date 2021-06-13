@@ -1,21 +1,29 @@
-You have been given a piece of code (look for `the-return-of-static.php` in your working directory) which is using static return types.
+Write a program that accepts two floating point numbers as arguments. The first number is the dividend, and the second is the divisor. The divisor may be zero.
 
-You will find two classes. `File`, a base class, and `Image` a class extending and adding behavior to `File`. We instantiate `Image`, set some properties using a fluent interface and then dump the object using `var_dump`.
+First, divide the numbers using the traditional binary operator (`/`). Make sure to wrap it in a try/catch statement because the operator can throw a `DivisionByZeroError` error.
 
-If you run the code using `{appname} run the-return-of-static.php` you will see it is broken.
+In the case of an exception, you should print the exception message followed by a new line.
 
-Locate and fix the issue!
+Second, use the `fdiv` function with the same numbers. There are a few different return values you can expect from `fdiv` based on the values you pass to it.
 
-### The advantages of the static return type
+Based on those values you should print a specific message followed by a new line:
 
-* Enforces that an instance of the class the method is called from, is returned. 
-* Most useful for fluent interfaces and static constructors to ensure an instance of a parent class is not returned.
+* INF -> print "Infinite"
+* -INF -> print "Minus infinite"
+* A valid float -> print the number, rounding it to three decimal places.
+
+`fdiv` will return INF (which is a PHP constant) if you attempt to divide a positive number by zero.
+`fdiv` will return -INF if you attempt to divide a negative number by zero.
+`fdiv` will return a valid float if your divisor is greater than zero.
+
+
+### The advantages of the fdiv function
+
+* No exceptions are thrown if you divide by zero
 
 ----------------------------------------------------------------------
 ## HINTS
 
-(Brief) Documentation on the static return type feature can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.static]()
-
-The static return type enforces methods to return an instance of the class that the method was called from, rather than the one it was defined in.
+Documentation on the fdiv function can be found by pointing your browser here:
+[https://www.php.net/manual/en/function.fdiv.php]()
 
