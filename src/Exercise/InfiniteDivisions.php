@@ -59,6 +59,10 @@ class InfiniteDivisions extends AbstractExercise implements
         return [
             [
                 (string) $this->faker->randomFloat(3, 10, 100),
+                '0'
+            ],
+            [
+                (string) $this->faker->randomFloat(3, 10, 100),
                 (string) $this->faker->randomFloat(3, 0, 10)
             ]
         ];
@@ -66,7 +70,7 @@ class InfiniteDivisions extends AbstractExercise implements
 
     public function getRequiredFunctions(): array
     {
-        return ['fdiv'];
+        return ['fdiv', 'round'];
     }
 
     public function getBannedFunctions(): array
