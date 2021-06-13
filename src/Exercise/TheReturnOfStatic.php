@@ -69,13 +69,13 @@ class TheReturnOfStatic extends AbstractExercise implements
 
         $finder = new NodeFinder();
 
-        /** @var Function_|null $adder */
+        /** @var Stmt\Class_|null $class */
         $class = $finder->findFirst($statements, function (Node $node) {
-            return $node instanceof Stmt\Class_ && $node->name->toString() === 'File';
+            return $node instanceof Stmt\Class_ && $node->name && $node->name->toString() === 'File';
         });
 
-        /** @var ClassMethod $method */
-        $method = $finder->findFirst([$class], function (Node $node) {
+        /** @var ClassMethod|null $method */
+        $method = $finder->findFirst($class ? [$class] : [], function (Node $node) {
             return $node instanceof ClassMethod && $node->name->toString() === 'withPermissions';
         });
 
