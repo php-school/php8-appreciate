@@ -58,8 +58,8 @@ class InfiniteDivisions extends AbstractExercise implements
     {
         return [
             [
-                (string) $this->faker->numberBetween(10, 100),
-                (string) $this->faker->numberBetween(0, 10)
+                (string) $this->faker->randomFloat(3, 10, 100),
+                (string) $this->faker->randomFloat(3, 0, 10)
             ]
         ];
     }
