@@ -3,6 +3,7 @@
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
+use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
@@ -32,5 +33,8 @@ return [
     },
     UniteTheTypes::class => function (ContainerInterface $c) {
         return new UniteTheTypes($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
+    },
+    InfiniteDivisions::class => function (ContainerInterface $c) {
+        return new InfiniteDivisions($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     },
 ];
