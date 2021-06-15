@@ -20,6 +20,7 @@ switch (true) {
 }
 
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
+use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
@@ -37,6 +38,7 @@ $app->addExercise(CautionWithCatches::class);
 $app->addExercise(LordOfTheStrings::class);
 $app->addExercise(UniteTheTypes::class);
 $app->addExercise(InfiniteDivisions::class);
+$app->addExercise(ASafeSpaceForNulls::class);
 
 $art = <<<ART
         _ __ _
