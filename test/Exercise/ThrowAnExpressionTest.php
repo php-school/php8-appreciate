@@ -29,13 +29,13 @@ class ThrowAnExpressionTest extends WorkshopExerciseTest
         $this->assertVerifyWasNotSuccessful();
 
         $output = $this->getOutputResult();
-
-        self::assertInstanceOf(Success::class, $output->getResults()[0]);
-        self::assertInstanceOf(GenericFailure::class, $output->getResults()[1]);
+        
+        self::assertInstanceOf(GenericFailure::class, $output->getResults()[0]);
+        self::assertInstanceOf(Success::class, $output->getResults()[1]);
 
         self::assertMatchesRegularExpression(
             '/Fatal error:  Uncaught Exception: Access denied!/',
-            $output->getResults()[1]->getReason()
+            $output->getResults()[0]->getReason()
         );
 
         $this->assertOutputWasIncorrect();

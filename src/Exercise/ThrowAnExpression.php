@@ -78,7 +78,7 @@ class ThrowAnExpression extends AbstractExercise implements
             return Failure::fromNameAndReason($this->getName(), 'No ternary statement found');
         }
 
-        if (!$ternary->else instanceof Throw_) {
+        if (!$ternary->if instanceof Throw_) {
             return Failure::fromNameAndReason($this->getName(), 'Ternary does not make use of throw expression');
         }
 
