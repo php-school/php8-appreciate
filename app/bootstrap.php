@@ -30,6 +30,7 @@ use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
+use PhpSchool\PHP8Appreciate\Exercise\StringifyToDemystify;
 use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');
@@ -45,6 +46,7 @@ $app->addExercise(ASafeSpaceForNulls::class);
 $app->addExercise(AllMixedUp::class);
 $app->addExercise(TheReturnOfStatic::class);
 $app->addExercise(ThrowAnExpression::class);
+$app->addExercise(StringifyToDemystify::class);
 
 $art = <<<ART
         _ __ _
