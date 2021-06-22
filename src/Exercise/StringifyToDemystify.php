@@ -6,6 +6,7 @@ namespace PhpSchool\PHP8Appreciate\Exercise;
 
 use GuzzleHttp\Psr7\Request;
 use PhpParser\Node\Name;
+use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\TryCatch;
 use PhpParser\NodeFinder;
@@ -133,11 +134,8 @@ class StringifyToDemystify extends AbstractExercise implements
 
     public function check(Input $input): ResultInterface
     {
+        /** @var Stmt[] $statements */
         $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
-
-        if (null === $statements) {
-            return new Failure($this->getName(), 'No code statements found');
-        }
 
         /** @var Class_|null $classStmt */
         $classStmt = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class);

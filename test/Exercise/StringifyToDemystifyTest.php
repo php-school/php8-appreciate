@@ -22,15 +22,6 @@ class StringifyToDemystifyTest extends WorkshopExerciseTest
         return require __DIR__ . '/../../app/bootstrap.php';
     }
 
-    public function testWithNoCode(): void
-    {
-        $this->runExercise('solution-no-code.php');
-
-        $this->assertVerifyWasNotSuccessful();
-
-        $this->assertResultsHasFailure(Failure::class, 'No code was found');
-    }
-
     public function testWithNoClass(): void
     {
         $this->runExercise('solution-no-class.php');

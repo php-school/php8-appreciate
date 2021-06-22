@@ -1,10 +1,10 @@
-`__toString()` a class magic method long-standing in PHP but never truly something you could rely on unless you rolled your own interface. All that has changed with the simple introduction of the `Stringable` interface in PHP 8.
+`__toString()` a magic class method long-standing in PHP but never truly something you could rely on unless you rolled your own interface. All that has changed with the simple introduction of the `Stringable` interface in PHP 8.
 
-A simple interface that requires the implementation of `__toString(): string`
+`Stringable` is a simple interface that requires the implementation of `__toString(): string`
 
 ----------------------------------------------------------------------
 
-Create a program that reads JSON body of the request input stream (mimicking an API response). The body will need to be JSON decoded and will be a variation of the example below:
+Create a program that reads the JSON body of the request input stream (mimicking an API response). The body will need to be JSON decoded and will be a variation of the example below:
 
 ```json
 {
@@ -14,7 +14,7 @@ Create a program that reads JSON body of the request input stream (mimicking an 
 }
 ```
 
-You will need to define a new class that implements `Stringable` and it's requirements. This class should take enough information from the request so that the `__toString` method can return a string like below:
+You will need to define a new class that implements `Stringable` and it's method requirements. This class should take enough information from the request so that the `__toString` method can return a string like below:
 
 ```
 Status: 401
@@ -37,11 +37,11 @@ To easily read the request body you can use `file_get_contents('php://input')`
 
 For more details look at the docs for...
 
-**Stringable** - [https://www.php.net/manual/en/class.stringable.php)
+**Stringable** - [https://www.php.net/manual/en/class.stringable.php]()
 
-Note that while the `Stringable` interface isn't required to pass the type hint check, but it should be used if not only to show intent.  
+Note that while the `Stringable` interface isn't required to pass the type hint check, however, it should be used if not only to show intent.  
 
 Oh, and don't forget about the basics for classes and interfaces :)
 
-**class** - [https://www.php.net/manual/en/language.oop5.basic.php)
-**interfaces** - [https://www.php.net/manual/en/language.oop5.interfaces.php)
+**class** - [https://www.php.net/manual/en/language.oop5.basic.php]()
+**interfaces** - [https://www.php.net/manual/en/language.oop5.interfaces.php]()
