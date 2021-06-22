@@ -28,6 +28,7 @@ use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
+use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use PhpSchool\PhpWorkshop\Application;
 
@@ -43,6 +44,7 @@ $app->addExercise(InfiniteDivisions::class);
 $app->addExercise(ASafeSpaceForNulls::class);
 $app->addExercise(AllMixedUp::class);
 $app->addExercise(TheReturnOfStatic::class);
+$app->addExercise(ThrowAnExpression::class);
 
 $art = <<<ART
         _ __ _
