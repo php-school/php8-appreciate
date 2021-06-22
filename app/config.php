@@ -8,6 +8,7 @@ use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\TheAttributesOfSuccess;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
@@ -57,4 +58,7 @@ return [
     StringifyToDemystify::class => function (ContainerInterface $c) {
         return new StringifyToDemystify($c->get(PhpParser\Parser::class));
     },
+    TheAttributesOfSuccess::class => function (ContainerInterface $c) {
+        return new TheAttributesOfSuccess($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
+    }
 ];

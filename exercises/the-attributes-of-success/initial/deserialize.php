@@ -1,33 +1,5 @@
 <?php
 
-#[Attribute(Attribute::TARGET_CLASS)]
-class Deserialize {}
-
-#[Attribute(Attribute::TARGET_PROPERTY)]
-class Map {
-    public function __construct(public string $mapFrom)
-    {
-    }
-}
-
-#[Attribute(Attribute::TARGET_PROPERTY)]
-class Skip {
-
-}
-
-#[Deserialize]
-class CityBreak {
-    public string $country;
-
-    #[Map('town')]
-    public string $city;
-
-    public string $avgTemperature;
-
-    #[Skip()]
-    public ?string $bestNeighbourhood = null;
-}
-
 function camelCaseToSnakeCase(string $string): string
 {
     return strtolower(preg_replace(['/([a-z\d])([A-Z])/', '/([^_])([A-Z][a-z])/'], '$1_$2', $string));
@@ -65,16 +37,3 @@ function deserialize(string $data, string $className): object
 
     return $object;
 }
-
-$object = deserialize(
-    json_encode([
-        'country' => 'Austria',
-        'town' => 'Vienna',
-        'avg_temperature' => '13',
-        'best_neighbourhood' => 'Penha de França'
-    ]),
-    CityBreak::class
-);
-
-var_dump($object);
-

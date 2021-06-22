@@ -27,6 +27,7 @@ use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
+use PhpSchool\PHP8Appreciate\Exercise\TheAttributesOfSuccess;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
@@ -47,6 +48,7 @@ $app->addExercise(AllMixedUp::class);
 $app->addExercise(TheReturnOfStatic::class);
 $app->addExercise(ThrowAnExpression::class);
 $app->addExercise(StringifyToDemystify::class);
+$app->addExercise(TheAttributesOfSuccess::class);
 
 $art = <<<ART
         _ __ _
