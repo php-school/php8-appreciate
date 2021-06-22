@@ -9,6 +9,7 @@ use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
+use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use Psr\Container\ContainerInterface;
 
@@ -48,5 +49,8 @@ return [
     },
     TheReturnOfStatic::class => function (ContainerInterface $c) {
         return new TheReturnOfStatic($c->get(PhpParser\Parser::class));
+    },
+    ThrowAnExpression::class => function (ContainerInterface $c) {
+        return new ThrowAnExpression($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
     }
 ];
