@@ -11,6 +11,7 @@ use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
+use PhpSchool\PHP8Appreciate\Exercise\StringifyToDemystify;
 use Psr\Container\ContainerInterface;
 
 use function DI\create;
@@ -52,5 +53,8 @@ return [
     },
     ThrowAnExpression::class => function (ContainerInterface $c) {
         return new ThrowAnExpression($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));
-    }
+    },
+    StringifyToDemystify::class => function (ContainerInterface $c) {
+        return new StringifyToDemystify($c->get(PhpParser\Parser::class));
+    },
 ];
