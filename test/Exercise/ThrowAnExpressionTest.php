@@ -81,4 +81,12 @@ class ThrowAnExpressionTest extends WorkshopExerciseTest
         $this->assertVerifyWasSuccessful();
         $this->assertOutputWasCorrect();
     }
+
+    public function testSuccessfulSolutionThrowOnElse(): void
+    {
+        $this->runExercise('solution-correct-else.php');
+
+        $this->assertVerifyWasSuccessful();
+        $this->assertOutputWasCorrect();
+    }
 }
