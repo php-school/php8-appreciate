@@ -4,6 +4,7 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 
 use PhpSchool\PHP8Appreciate\Exercise\ThrowAnExpression;
 use PhpSchool\PhpWorkshop\Application;
+use PhpSchool\PhpWorkshop\Result\Cgi\GenericFailure;
 use PhpSchool\PhpWorkshop\Result\Cgi\RequestFailure;
 use PhpSchool\PhpWorkshop\Result\Cgi\Success;
 use PhpSchool\PhpWorkshop\Result\Failure;
@@ -28,13 +29,13 @@ class ThrowAnExpressionTest extends WorkshopExerciseTest
         $this->assertVerifyWasNotSuccessful();
 
         $output = $this->getOutputResult();
-
+        
         self::assertInstanceOf(Success::class, $output->getResults()[0]);
-        self::assertInstanceOf(RequestFailure::class, $output->getResults()[1]);
+        self::assertInstanceOf(GenericFailure::class, $output->getResults()[1]);
 
         self::assertMatchesRegularExpression(
-            '/Fatal error: Uncaught Exception: Access denied!/',
-            $output->getResults()[1]->getActualOutput()
+            '/Fatal error:  Uncaught Exception: Access denied!/',
+            $output->getResults()[1]->getReason()
         );
 
         $this->assertOutputWasIncorrect();
