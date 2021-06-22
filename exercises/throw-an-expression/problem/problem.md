@@ -3,7 +3,7 @@ You have been given a piece of code (look for `throw-an-expression.php` in your 
 If the request is allowed, `Welcome!` is printed out.
 
 
-Traditionally, pre PHP 8, an exception throw has been a statement. There are certain places where statements can be used, and only expressions can be used. For example, in ternaries and short closures, only expressions can be used.
+Traditionally, pre PHP 8, an exception throw has been a statement. There are certain places where statements cannot be used, and only expressions can be used. For example, in ternaries and short closures, only expressions can be used.
 
 Now with PHP 8, throw statements are expressions making them available to use in pretty much all locations.
 
