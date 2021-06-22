@@ -29,7 +29,7 @@ class ThrowAnExpressionTest extends WorkshopExerciseTest
         $this->assertVerifyWasNotSuccessful();
 
         $output = $this->getOutputResult();
-        
+
         self::assertInstanceOf(GenericFailure::class, $output->getResults()[0]);
         self::assertInstanceOf(Success::class, $output->getResults()[1]);
 
