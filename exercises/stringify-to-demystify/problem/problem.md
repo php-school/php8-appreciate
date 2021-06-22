@@ -1,4 +1,4 @@
-`__toString()` a magic class method long-standing in PHP but never truly something you could rely on unless you rolled your own interface. All that has changed with the simple introduction of the `Stringable` interface in PHP 8.
+`__toString()` is a magic class method long-standing in PHP but never truly something you could rely on unless you rolled your own interface. All that has changed with the simple introduction of the `Stringable` interface in PHP 8.
 
 `Stringable` is a simple interface that requires the implementation of `__toString(): string`
 
