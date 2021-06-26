@@ -37,7 +37,7 @@ class TheAttributesOfSuccess extends AbstractExercise implements
     FileComparisonExerciseCheck,
     SelfCheck
 {
-    public function __construct(private Parser $parser,  private FakerGenerator $faker)
+    public function __construct(private Parser $parser, private FakerGenerator $faker)
     {
     }
 
@@ -185,7 +185,6 @@ class TheAttributesOfSuccess extends AbstractExercise implements
                 && $node->params[0]->var->name === 'key'
                 && $node->params[0]->type instanceof \PhpParser\Node\Identifier
                 && $node->params[0]->type->name === 'string';
-
         });
 
         if ($prop === null && $promotedProp === null) {
