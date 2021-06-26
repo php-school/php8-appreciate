@@ -16,9 +16,28 @@ function deserialize(string $data, string $className): object
 
     $attrs[0]->newInstance();
 
-    $object = new $className;
+    $object = new $className();
 
     $data = json_decode($data, true);
+
+    $obfuscators = array_filter(
+        $reflectionClass->getMethods(),
+        fn (ReflectionMethod $m) => count($m->getAttributes(Obfuscate::class)) > 0
+    );
+
+    $obfuscators = array_combine(
+        array_map(
+            fn(ReflectionMethod $m) => $m->getAttributes(Obfuscate::class)[0]->newInstance()->key,
+            $obfuscators
+        ),
+        $obfuscators
+    );
+
+    foreach ($data as $key => $value) {
+        if (isset($obfuscators[$key])) {
+            $data[$key] = $object->{$obfuscators[$key]->getName()}($value);
+        }
+    }
 
     foreach ($reflectionClass->getProperties() as $property) {
         if ($map = $property->getAttributes(Map::class)) {

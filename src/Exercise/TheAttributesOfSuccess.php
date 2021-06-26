@@ -4,8 +4,11 @@ namespace PhpSchool\PHP8Appreciate\Exercise;
 
 use Faker\Generator as FakerGenerator;
 use PhpParser\Node;
+use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
+use PhpParser\Node\Stmt\ClassMethod;
+use PhpParser\Node\Stmt\Property;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
@@ -79,6 +82,7 @@ class TheAttributesOfSuccess extends AbstractExercise implements
         return [
             json_encode(
                 [
+                    'id' => random_int(0, 100),
                     'comment' => $this->faker->sentence(4),
                     'rating' => $this->faker->numberBetween(0, 5),
                     'reviewer' => $this->faker->userName(),
@@ -99,17 +103,108 @@ class TheAttributesOfSuccess extends AbstractExercise implements
             return $node instanceof Class_ && $node->name && $node->name->name === 'Review';
         });
 
-        //not even sure we need this the var_dump will cover it
         if ($classStmt === null) {
             return new Failure($this->getName(), 'A class named Review was not found');
         }
+
+        /** @var ClassMethod|null $method */
+        $method = (new NodeFinder())->findFirst($statements, function (Node $node) {
+            return $node instanceof ClassMethod && $node->name->name === 'obfuscateReviewer';
+        });
+
+        if ($method === null) {
+            return new Failure($this->getName(), 'A method named obfuscateReviewer was not found');
+        }
+
+        if (!isset($method->attrGroups[0]->attrs[0])) {
+            return new Failure($this->getName(), 'No attributes found on method obfuscateReviewer');
+        }
+
+        $attribute = $method->attrGroups[0]->attrs[0];
+
+        if ($attribute->name->toString() !== 'Obfuscate') {
+            return new Failure($this->getName(), 'No attribute named Obfuscate found on method obfuscateReviewer');
+        }
+
+        if (!isset($attribute->args[0])) {
+            return new Failure($this->getName(), 'No property name argument was passed to the Obfuscate attribute');
+        }
+
+        if (!$attribute->args[0]->value instanceof String_ || $attribute->args[0]->value->value !== 'reviewer') {
+            return new Failure($this->getName(), 'The Obfuscate attribute was not passed the correct data property');
+        }
+
+        /** @var Class_|null $attributeClass */
+        $attributeClass = (new NodeFinder())->findFirst($statements, function (Node $node) {
+            return $node instanceof Class_ && $node->name && $node->name->name === 'Obfuscate';
+        });
+
+        if ($attributeClass === null) {
+            return new Failure($this->getName(), 'A class named Obfuscate was not found');
+        }
+
+        if (!isset($attributeClass->attrGroups[0]->attrs[0])) {
+            return new Failure($this->getName(), 'No attributes found on class Obfuscate');
+        }
+
+        $attribute = $attributeClass->attrGroups[0]->attrs[0];
+
+        if ($attribute->name->toString() !== 'Attribute') {
+            return new Failure($this->getName(), 'The Obfuscate class was not defined as an Attribute');
+        }
+
+        if (!isset($attribute->args[0])) {
+            return new Failure($this->getName(), 'No flags were passed to Obfuscate Attribute definition');
+        }
+
+        /** @var \PhpParser\Node\Expr\ClassConstFetch $value */
+        $value = $attribute->args[0]->value;
+
+        if ($value->class->toString() !== 'Attribute' || $value->name->name !== 'TARGET_METHOD') {
+            return new Failure(
+                $this->getName(),
+                'The Obfuscate Attribute was not configured as Attribute::TARGET_METHOD'
+            );
+        }
+
+        $prop = (new NodeFinder())->findFirst($attributeClass->getProperties(), function (Node $node) {
+            return $node instanceof Property
+                && $node->isPublic()
+                && $node->type instanceof \PhpParser\Node\Identifier
+                && $node->type->name === 'string'
+                && $node->props[0] instanceof \PhpParser\Node\Stmt\PropertyProperty
+                && $node->props[0]->name instanceof \PhpParser\Node\VarLikeIdentifier
+                && $node->props[0]->name->name === 'key';
+        });
+
+        $promotedProp = (new NodeFinder())->findFirst($attributeClass->getMethods(), function (Node $node) {
+            return $node instanceof ClassMethod
+                && $node->name->name === '__construct'
+                && isset($node->params[0])
+                && $node->params[0]->flags === 1
+                && $node->params[0]->var->name === 'key'
+                && $node->params[0]->type instanceof \PhpParser\Node\Identifier
+                && $node->params[0]->type->name === 'string';
+
+        });
+
+        if ($prop === null && $promotedProp === null) {
+            return new Failure(
+                $this->getName(),
+                'The Obfuscate Attribute has no public property named "key"'
+            );
+        }
+
 
         return new Success($this->getName());
     }
 
     public function getRequiredFunctions(): array
     {
-        return ['deserialize'];
+        return [
+            'deserialize',
+            'var_dump'
+        ];
     }
 
     public function getBannedFunctions(): array
