@@ -6,10 +6,8 @@ require_once __DIR__ . '/attributes.php';
 
 #[Attribute(Attribute::TARGET_METHOD)]
 class Obfuscate {
-    public string $key;
-    public function __construct(string $key)
+    public function __construct(public string $key)
     {
-        $this->key = $key;
     }
 }
 
@@ -35,5 +33,3 @@ class Review {
 }
 
 $object = deserialize($argv[1], Review::class);
-
-var_dump($object);

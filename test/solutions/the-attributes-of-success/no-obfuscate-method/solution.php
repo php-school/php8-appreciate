@@ -26,12 +26,6 @@ class Review {
     public string $id;
 
     public ?string $reviewer = null;
-
-    #[Obfuscate('reviewer')]
-    public function obfuscateReviewer(string $reviewer): string
-    {
-        return md5($reviewer);
-    }
 }
 
 $object = deserialize($argv[1], Review::class);

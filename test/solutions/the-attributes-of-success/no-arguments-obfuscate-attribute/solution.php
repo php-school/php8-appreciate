@@ -27,7 +27,7 @@ class Review {
 
     public ?string $reviewer = null;
 
-    #[Obfuscate('reviewer')]
+    #[Obfuscate()]
     public function obfuscateReviewer(string $reviewer): string
     {
         return md5($reviewer);

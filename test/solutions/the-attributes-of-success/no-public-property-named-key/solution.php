@@ -6,10 +6,8 @@ require_once __DIR__ . '/attributes.php';
 
 #[Attribute(Attribute::TARGET_METHOD)]
 class Obfuscate {
-    public string $key;
-    public function __construct(string $key)
+    public function __construct ()
     {
-        $this->key = $key;
     }
 }
 

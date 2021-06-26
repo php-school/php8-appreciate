@@ -22,7 +22,9 @@ function deserialize(string $data, string $className): object
 
     $obfuscators = array_filter(
         $reflectionClass->getMethods(),
-        fn (ReflectionMethod $m) => count($m->getAttributes(Obfuscate::class)) > 0
+        function (ReflectionMethod $m) {
+            return count($m->getAttributes(Obfuscate::class)) > 0;
+        }
     );
 
     $obfuscators = array_combine(
