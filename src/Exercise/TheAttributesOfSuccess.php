@@ -4,11 +4,16 @@ namespace PhpSchool\PHP8Appreciate\Exercise;
 
 use Faker\Generator as FakerGenerator;
 use PhpParser\Node;
+use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Identifier;
 use PhpParser\Node\Scalar\String_;
 use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Property;
+use PhpParser\Node\Stmt\PropertyProperty;
+use PhpParser\Node\VarLikeIdentifier;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
@@ -68,7 +73,7 @@ class TheAttributesOfSuccess extends AbstractExercise implements
     public function getSolution(): SolutionInterface
     {
         return DirectorySolution::fromDirectory(
-            realpath(__DIR__ . '/../../exercises/the-attributes-of-success/solution'),
+            (string) realpath(__DIR__ . '/../../exercises/the-attributes-of-success/solution'),
         );
     }
 
@@ -80,16 +85,18 @@ class TheAttributesOfSuccess extends AbstractExercise implements
     public function getArgs(): array
     {
         return [
-            json_encode(
-                [
-                    'id' => random_int(0, 100),
-                    'comment' => $this->faker->sentence(4),
-                    'rating' => $this->faker->numberBetween(0, 5),
-                    'reviewer' => $this->faker->userName(),
-                    'date' => $this->faker->date('d-m-Y')
-                ],
-                JSON_THROW_ON_ERROR
-            )
+            [
+                json_encode(
+                    [
+                        'id' => random_int(0, 100),
+                        'comment' => $this->faker->sentence(4),
+                        'rating' => $this->faker->numberBetween(0, 5),
+                        'reviewer' => $this->faker->userName(),
+                        'date' => $this->faker->date('d-m-Y')
+                    ],
+                    JSON_THROW_ON_ERROR
+                )
+            ]
         ];
     }
 
@@ -157,10 +164,14 @@ class TheAttributesOfSuccess extends AbstractExercise implements
             return new Failure($this->getName(), 'No flags were passed to Obfuscate Attribute definition');
         }
 
-        /** @var \PhpParser\Node\Expr\ClassConstFetch $value */
+        /** @var ClassConstFetch $value */
         $value = $attribute->args[0]->value;
 
-        if ($value->class->toString() !== 'Attribute' || $value->name->name !== 'TARGET_METHOD') {
+        if (
+            $value->class->toString() !== 'Attribute'
+            || !$value->name instanceof Identifier
+            || $value->name->name !== 'TARGET_METHOD'
+        ) {
             return new Failure(
                 $this->getName(),
                 'The Obfuscate Attribute was not configured as Attribute::TARGET_METHOD'
@@ -170,10 +181,10 @@ class TheAttributesOfSuccess extends AbstractExercise implements
         $prop = (new NodeFinder())->findFirst($attributeClass->getProperties(), function (Node $node) {
             return $node instanceof Property
                 && $node->isPublic()
-                && $node->type instanceof \PhpParser\Node\Identifier
+                && $node->type instanceof Identifier
                 && $node->type->name === 'string'
-                && $node->props[0] instanceof \PhpParser\Node\Stmt\PropertyProperty
-                && $node->props[0]->name instanceof \PhpParser\Node\VarLikeIdentifier
+                && $node->props[0] instanceof PropertyProperty
+                && $node->props[0]->name instanceof VarLikeIdentifier
                 && $node->props[0]->name->name === 'key';
         });
 
@@ -182,8 +193,9 @@ class TheAttributesOfSuccess extends AbstractExercise implements
                 && $node->name->name === '__construct'
                 && isset($node->params[0])
                 && $node->params[0]->flags === 1
+                && $node->params[0]->var instanceof Variable
                 && $node->params[0]->var->name === 'key'
-                && $node->params[0]->type instanceof \PhpParser\Node\Identifier
+                && $node->params[0]->type instanceof Identifier
                 && $node->params[0]->type->name === 'string';
         });
 
