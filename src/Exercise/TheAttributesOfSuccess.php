@@ -33,6 +33,7 @@ use PhpSchool\PhpWorkshop\Result\ResultInterface;
 use PhpSchool\PhpWorkshop\Result\Success;
 use PhpSchool\PhpWorkshop\Solution\DirectorySolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
+use PhpSchool\PhpWorkshop\Utils\System;
 
 class TheAttributesOfSuccess extends AbstractExercise implements
     ExerciseInterface,
@@ -73,7 +74,7 @@ class TheAttributesOfSuccess extends AbstractExercise implements
     public function getSolution(): SolutionInterface
     {
         return DirectorySolution::fromDirectory(
-            (string) realpath(__DIR__ . '/../../exercises/the-attributes-of-success/solution'),
+            System::realpath(__DIR__ . '/../../exercises/the-attributes-of-success/solution')
         );
     }
 
