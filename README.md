@@ -1,22 +1,32 @@
-<h1 align="center">Workshop Starter Kit</h1>
-
-<p align="center">If you want to build your own workshop, this repository and it't tools will help you get going</p>
+<h1 align="center">PHP 8 Appreciate</h1>
 
 <p align="center">
-  <a href="https://phpschool-team.slack.com/messages">
-      <img src="https://phpschool.herokuapp.com/badge.svg">
-  </a>
+A PHP School workshop, showcasing the new features of PHP 8. PHP School is a revolutionary new way to learn PHP </br> Bring your imagination to life in an open learning eco-system
 </p>
-----
 
-## Getting Started
+<p align="center">
+<a href="https://github.com/php-school/php8-appreciate/actions">
+    <img src="https://github.com/php-school/php8-appreciate/actions/workflows/build.yml/badge.svg">
+</a>
+<a href="https://codecov.io/github/php-school/php8-appreciate">
+    <img src="https://img.shields.io/codecov/c/github/php-school/php8-appreciate.svg?style=flat-square">
+</a>
+<a href="https://phpschool-team.slack.com/messages">
+    <img src="https://phpschool.herokuapp.com/badge.svg">
+</a>
+</p>
 
-```shell
-composer create-project php-school/workshop-starter-kit your-workshop-name
-```
+---
 
-That's it! You will be prompted for some information along the way, this will be used to setup the project details in `composer.json`, setup autoloading of your classes and a few other things. A command will be dispayed towards the end of the process which will immediately allow you to run your workshop!
+<p align="center">
+<img width="500" alt="PHP 8 Appreciate" src="https://cloud.githubusercontent.com/assets/2174476/12734228/2bb56e46-c937-11e5-803a-e94687adfbce.png">
+</p>
 
-For detailed documentation on how to actually build execrises and extend the application, check the docs page on our site [www.phpschool.io/docs](https://www.phpschool.io/docs).
+## Installation
 
-Finally, drop in the [slack channel](https://phpschool-team.slack.com/messages) if you have further questions. Also send us a PR [here](https://github.com/php-school/phpschool.io) or just drop us a message if you want your workshop featured on www.phpschool.io! 
+1. Install [PHP](http://php.net/downloads.php)
+2. Install [workshop-manager](https://www.phpschool.io/)
+3. Run `workshop-manager install php8appreciate`
+4. Run `learnyouphp`
+
+**php8appreciate** will run through a series of PHP workshops dealing with new PHP 8 features including Property promotion, Match, Named Arguments, Attributes & so on.
