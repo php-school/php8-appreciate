@@ -1,7 +1,7 @@
 <h1 align="center">PHP 8 Appreciate</h1>
 
 <p align="center">
-A PHP School workshop, showcasing the new features of PHP 8. PHP School is a revolutionary new way to learn PHP </br> Bring your imagination to life in an open learning eco-system
+A PHP School workshop, showcasing the new features of PHP 8. PHP School is a revolutionary new way to learn PHP. Bring your imagination to life in an open learning eco-system
 </p>
 
 <p align="center">
