@@ -27,6 +27,6 @@ A PHP School workshop, showcasing the new features of PHP 8. PHP School is a rev
 1. Install [PHP](http://php.net/downloads.php)
 2. Install [workshop-manager](https://www.phpschool.io/)
 3. Run `workshop-manager install php8appreciate`
-4. Run `learnyouphp`
+4. Run `php8appreciate`
 
 **php8appreciate** will run through a series of PHP workshops dealing with new PHP 8 features including Property promotion, Match, Named Arguments, Attributes & so on.
