@@ -47,7 +47,7 @@ class ASafeSpaceForNulls extends AbstractExercise implements
 
     public function getName(): string
     {
-        return 'A Safe Space For Nulls';
+        return 'A Safe Space for Nulls';
     }
 
     public function getDescription(): string
