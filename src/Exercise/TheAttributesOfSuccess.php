@@ -215,7 +215,8 @@ class TheAttributesOfSuccess extends AbstractExercise implements
     {
         return [
             'deserialize',
-            'var_dump'
+            'var_dump',
+            'md5'
         ];
     }
 
