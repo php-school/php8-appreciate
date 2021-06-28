@@ -51,13 +51,15 @@ $app->addExercise(StringifyToDemystify::class);
 $app->addExercise(TheAttributesOfSuccess::class);
 
 $art = <<<ART
-        _ __ _
-       / |..| \
-       \/ || \/
-        |_''_|
+ ________  ___  ___  ________        ________     
+|\   __  \|\  \|\  \|\   __  \      |\   __  \    
+\ \  \|\  \ \  \\\  \ \  \|\  \     \ \  \|\  \   
+ \ \   ____\ \   __  \ \   ____\     \ \   __  \  
+  \ \  \___|\ \  \ \  \ \  \___|      \ \  \|\  \ 
+   \ \__\    \ \__\ \__\ \__\          \ \_______\
+    \|__|     \|__|\|__|\|__|           \|_______|
 
-      PHP SCHOOL
-LEARNING FOR ELEPHPANTS
+                PHP 8 APPRECIATE
 ART;
 
 $app->setLogo($art);
