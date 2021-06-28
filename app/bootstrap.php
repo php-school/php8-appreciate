@@ -34,7 +34,7 @@ use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use PhpSchool\PHP8Appreciate\Exercise\StringifyToDemystify;
 use PhpSchool\PhpWorkshop\Application;
 
-$app = new Application('PHP8 Appreciate', __DIR__ . '/config.php');
+$app = new Application('', __DIR__ . '/config.php');
 
 $app->addExercise(AMatchMadeInHeaven::class);
 $app->addExercise(HaveTheLastSay::class);
