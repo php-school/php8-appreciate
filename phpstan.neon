@@ -4,6 +4,7 @@ parameters:
         - '#Cannot access property \$args on PhpParser\\Node\|null#'
         - '#Call to an undefined method PhpParser\\Node\\Expr\|PhpParser\\Node\\Name\:\:toString\(\)#'
         - '#Parameter \#1 \$array of function array_flip expects array<int\|string>, array<int, int\|string>\|int\|string given.#'
+        - '#Call to an undefined method Faker\\Generator\:\:userName\(\).#'
 
     excludes_analyse:
         - src/TestUtils/WorkshopExerciseTest.php
