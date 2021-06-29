@@ -1,12 +1,12 @@
 <?php
 
-class RowVisitorTypeMutated
+class RowVisitorTypeRemoved
 {
-    protected string $basePath;
+    protected $basePath;
 
     public function __construct(
         private \Closure $visitor,
-        private \Stringable $key,
+        private $key,
         array $config = []
     ) {
         $this->basePath = $config['basePath'] ?? '';

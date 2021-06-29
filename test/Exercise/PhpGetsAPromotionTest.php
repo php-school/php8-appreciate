@@ -93,6 +93,15 @@ class PhpGetsAPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "key" should not have changed type');
     }
 
+    public function testFailureIfPropertiesTypeRemoved(): void
+    {
+        $this->runExercise('solution-type-removed.php');
+
+        $this->assertVerifyWasNotSuccessful();
+
+        $this->assertResultsHasFailure(Failure::class, 'Properties "key" & "basePath" should not have changed type');
+    }
+
     public function testFailureIfPropertyDataIncorrect(): void
     {
         $this->runExercise('solution-data-not-set.php');
