@@ -11,7 +11,7 @@ function verify_password(string $password): bool;
 
 For this exercise this function will always throw an exception but unfortunately the exception message contains the password in plain text!
 
-To pass this exercise you will need to call the `verify_password` function with the password provided, handle the exception and output `"Given password is invalid, please try again`. 
+To pass this exercise you will need to call the `verify_password` function with the password provided, handle the exception and output `"Given password is invalid, please try again"`. 
 
 PHP 8 allows you to handle the exception without capturing the exception itself which will ensure this message is not leaked further.
 
