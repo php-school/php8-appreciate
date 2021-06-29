@@ -22,7 +22,11 @@ use PhpSchool\PhpWorkshop\Solution\SingleFileSolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
 use ReflectionClass;
 
-class PhpGetsAPromotion extends AbstractExercise implements ExerciseInterface, ProvidesInitialCode, CliExercise, SelfCheck
+class PhpGetsAPromotion extends AbstractExercise implements
+    ExerciseInterface,
+    ProvidesInitialCode,
+    CliExercise,
+    SelfCheck
 {
     public function __construct(private Parser $parser)
     {
@@ -40,7 +44,9 @@ class PhpGetsAPromotion extends AbstractExercise implements ExerciseInterface, P
 
     public function getInitialCode(): SolutionInterface
     {
-        return SingleFileSolution::fromFile(__DIR__ . '/../../exercises/php-gets-a-promotion/initial/php-gets-a-promotion.php');
+        return SingleFileSolution::fromFile(
+            __DIR__ . '/../../exercises/php-gets-a-promotion/initial/php-gets-a-promotion.php'
+        );
     }
 
     public function getType(): ExerciseType
