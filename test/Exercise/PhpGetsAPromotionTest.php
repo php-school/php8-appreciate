@@ -9,7 +9,7 @@ use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class PhpPromotionTest extends WorkshopExerciseTest
+class PhpGetsAPromotionTest extends WorkshopExerciseTest
 {
     public function getExerciseClass(): string
     {
@@ -30,7 +30,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'No code was found');
     }
 
-    public function testWithNoPropertyPromotion()
+    public function testWithNoPropertyPromotion(): void
     {
         $this->runExercise('solution-no-property-promotion.php');
 
@@ -39,7 +39,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Properties "visitor" & "key" were not promoted');
     }
 
-    public function testWithNotAllPropertiesPromoted()
+    public function testWithNotAllPropertiesPromoted(): void
     {
         $this->runExercise('solution-not-all-promoted.php');
 
@@ -48,7 +48,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "key" was not promoted');
     }
 
-    public function testFailureWhenPropertiesMissing()
+    public function testFailureWhenPropertiesMissing(): void
     {
         $this->runExercise('solution-properties-missing.php');
 
@@ -57,7 +57,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "key" was missing');
     }
 
-    public function testFailureIfNoClassStatement()
+    public function testFailureIfNoClassStatement(): void
     {
         $this->runExercise('solution-no-class.php');
 
@@ -66,7 +66,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'No class was found');
     }
 
-    public function testFailureWhenPropertyVisibilityChanges()
+    public function testFailureWhenPropertyVisibilityChanges(): void
     {
         $this->runExercise('solution-visibility-mutated.php');
 
@@ -75,7 +75,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Visibility changed for properties "basePath" & "key"');
     }
 
-    public function testBadPropertyPromotion()
+    public function testBadPropertyPromotion(): void
     {
         $this->runExercise('solution-incorrect-promotion.php');
 
@@ -84,7 +84,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "config" should not be promoted');
     }
 
-    public function testFaliureIfPropertiesChangeType()
+    public function testFaliureIfPropertiesChangeType(): void
     {
         $this->runExercise('solution-type-mutated.php');
 
@@ -93,7 +93,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "key" should not have changed type');
     }
 
-    public function testFailureIfPropertyDataIncorrect()
+    public function testFailureIfPropertyDataIncorrect(): void
     {
         $this->runExercise('solution-data-not-set.php');
 
@@ -102,7 +102,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Data not correctly set on property "basePath"');
     }
 
-    public function testSuccessWithCorrectSolution()
+    public function testSuccessWithCorrectSolution(): void
     {
         $this->runExercise('solution.php');
 
