@@ -37,8 +37,8 @@ Note: only the values changed from the defaults are specified!
 
 ### Advantages of named arguments
 
-* Possible to skip defaults in between the arguments you want to change 
-* The code is better documented since the argument label is specified with the value, very useful for booleans
+* Possible to skip defaults in between the arguments you want to change.
+* The code is better documented since the argument label is specified with the value, very useful for booleans.
 
 ----------------------------------------------------------------------
 ## HINTS

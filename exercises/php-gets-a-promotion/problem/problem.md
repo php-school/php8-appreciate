@@ -1,16 +1,18 @@
 You have been given a piece of code (look for `php-gets-a-promotion.php` in your working directory) which provides a class written for PHP 7.
-The code itself works well, assigning constructor arguments to the class properties. Your job is to write the code in a more terse format, by using the newly introduced
-constructor property promotion in PHP 8.
 
-The code is a class that would hypothetically be used to call a provided `\Closure` when reading a row of a CSV, passing in the appropriate cell value, but the implementation logic is not important and thus left out.
+The code itself works well, assigning constructor arguments to the class properties.
+
+Your job is to write the code in a more terse format, by using the newly introduced constructor property promotion feature in PHP 8.
+
+The code is a class that would hypothetically be used to call a provided `\Closure` when reading a row of a CSV, passing in the appropriate row values, but the implementation logic is not important and thus left out.
 
 Focus on converting the constructor to a terse format using constructor property promotion.
 
 ### The advantages of constructor property promotion
 
-* Less boilerplate code is required when writing a class
-* It still provides the required information for static analysis / runtime type parsing
-* Is compatible in conjunction with properties that cannot be promoted
+* Less boilerplate code is required when writing a class.
+* It still provides the required information for static analysis / runtime type parsing.
+* Is compatible in conjunction with properties that cannot be promoted.
 
 
 ----------------------------------------------------------------------
