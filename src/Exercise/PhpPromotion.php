@@ -30,7 +30,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
     public function getName(): string
     {
-        return 'PHP gets a Promotion';
+        return 'PHP Gets a Promotion';
     }
 
     public function getDescription(): string
