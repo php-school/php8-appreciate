@@ -34,7 +34,7 @@ class UniteTheTypes extends AbstractExercise implements
 
     public function getName(): string
     {
-        return 'Unite The Types';
+        return 'Unite the Types';
     }
 
     public function getDescription(): string

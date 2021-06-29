@@ -36,7 +36,7 @@ class AMatchMadeInHeaven extends AbstractExercise implements
 
     public function getName(): string
     {
-        return 'A Match Made In Heaven';
+        return 'A Match Made in Heaven';
     }
 
     public function getDescription(): string
