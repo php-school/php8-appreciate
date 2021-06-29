@@ -178,7 +178,7 @@ class PhpGetsAPromotion extends AbstractExercise implements
         $type = $prop->getType();
 
         if (null === $type || !$type instanceof \ReflectionNamedType) {
-            throw new \RuntimeException(sprintf('Invalid property "%s"', $prop->getName()));
+            return '';
         }
         /** @var \ReflectionNamedType $type */
         return $type->getName();
