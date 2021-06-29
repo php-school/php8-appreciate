@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpSchool\PHP8AppreciateTest\Exercise;
 
-use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
+use PhpSchool\PHP8Appreciate\Exercise\PhpGetsAPromotion;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
@@ -13,7 +13,7 @@ class PhpPromotionTest extends WorkshopExerciseTest
 {
     public function getExerciseClass(): string
     {
-        return PhpPromotion::class;
+        return PhpGetsAPromotion::class;
     }
 
     public function getApplication(): Application

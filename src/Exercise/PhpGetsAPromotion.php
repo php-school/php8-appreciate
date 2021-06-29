@@ -22,7 +22,7 @@ use PhpSchool\PhpWorkshop\Solution\SingleFileSolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
 use ReflectionClass;
 
-class PhpPromotion extends AbstractExercise implements ExerciseInterface, ProvidesInitialCode, CliExercise, SelfCheck
+class PhpGetsAPromotion extends AbstractExercise implements ExerciseInterface, ProvidesInitialCode, CliExercise, SelfCheck
 {
     public function __construct(private Parser $parser)
     {
@@ -40,7 +40,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
     public function getInitialCode(): SolutionInterface
     {
-        return SingleFileSolution::fromFile(__DIR__ . '/../../exercises/php-promotion/initial/php-7-class.php');
+        return SingleFileSolution::fromFile(__DIR__ . '/../../exercises/php-gets-a-promotion/initial/php-gets-a-promotion.php');
     }
 
     public function getType(): ExerciseType
