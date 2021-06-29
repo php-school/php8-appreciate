@@ -84,7 +84,7 @@ class PhpGetsAPromotionTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(Failure::class, 'Property "config" should not be promoted');
     }
 
-    public function testFaliureIfPropertiesChangeType(): void
+    public function testFailureIfPropertiesChangeType(): void
     {
         $this->runExercise('solution-type-mutated.php');
 
