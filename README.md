@@ -19,8 +19,7 @@ A PHP School workshop, showcasing the new features of PHP 8. PHP School is a rev
 ---
 
 <p align="center">
-
-<img width="700" alt="PHP 8 Appreciate" src="https://user-images.githubusercontent.com/2817002/123790593-6a1fc500-d8d6-11eb-8285-bc0edfe40c7c.png">
+<img width="700" alt="PHP 8 Appreciate" src="https://user-images.githubusercontent.com/2817002/124182783-3fd52f80-daaf-11eb-973a-82ae81451efc.png">
 </p>
 
 ## Installation
