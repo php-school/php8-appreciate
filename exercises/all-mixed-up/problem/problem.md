@@ -1,4 +1,4 @@
-As alluded to earlier in `Unite The Types` PHP's type system has been constantly and consistently growing and evolving for a long time.
+PHP's type system has been constantly and consistently growing and evolving for a long time.
 
 PHP 8 comes with a new type `mixed` which is essentially a union of `array|bool|callable|int|float|object|resource|string|null`. 
 

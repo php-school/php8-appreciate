@@ -118,10 +118,10 @@ The last task is to dump your object instance out using the PHP function `var_du
 
 ### The advantages of Attributes
 
-* Add Metadata to classes, methods, properties and arguments and so on
-* They can replace PHP doc blocks, each with custom parsers and rules to a unified standard supported by PHP
-* The data can be introspected using PHP's Reflection API's
-* PHP Core and extensions can provide new behaviour and runtime configuration which is opt-in, such as conditionally declaring functions, deprecating features and so on
+* Add Metadata to classes, methods, properties and arguments and so on.
+* They can replace PHP doc blocks, each with custom parsers and rules to a unified standard supported by PHP.
+* The data can be introspected using PHP's Reflection API's.
+* PHP Core and extensions can provide new behaviour and runtime configuration which is opt-in, such as conditionally declaring functions, deprecating features and so on.
 
 ----------------------------------------------------------------------
 ## HINTS
@@ -135,6 +135,7 @@ You must call the `deserialize` function and you must use the `var_dump` functio
 
 If you want to see the `JSON` data - use `var_dump` to dump it out.
 
+For verification purposes, the order the properties defined in your `Review` class is important. Define them in the same order they are described to you.
 
 ## Extra
 

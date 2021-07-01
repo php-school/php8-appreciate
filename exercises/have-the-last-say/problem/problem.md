@@ -63,6 +63,4 @@ Documentation on the `feof` function can be found by pointing your browser here:
 ----------------------------------------------------------------------
 ## EXTRA
 
-Although not entirely necessary for a small script, it is good practise to close
-any open file handles so that other processes can access them, you can use `fclose`
-for that.
+Although not entirely necessary for a small script, it is good practise to close any open file handles so that other processes can access them, you can use `fclose` for that.
