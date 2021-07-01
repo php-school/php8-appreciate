@@ -36,18 +36,18 @@ use PhpSchool\PhpWorkshop\Application;
 
 $app = new Application('', __DIR__ . '/config.php');
 
-$app->addExercise(AMatchMadeInHeaven::class);
-$app->addExercise(HaveTheLastSay::class);
 $app->addExercise(PhpGetsAPromotion::class);
+$app->addExercise(AMatchMadeInHeaven::class);
+$app->addExercise(ThrowAnExpression::class);
 $app->addExercise(CautionWithCatches::class);
-$app->addExercise(LordOfTheStrings::class);
+$app->addExercise(AllMixedUp::class);
+$app->addExercise(HaveTheLastSay::class);
 $app->addExercise(UniteTheTypes::class);
 $app->addExercise(InfiniteDivisions::class);
 $app->addExercise(ASafeSpaceForNulls::class);
-$app->addExercise(AllMixedUp::class);
-$app->addExercise(TheReturnOfStatic::class);
-$app->addExercise(ThrowAnExpression::class);
 $app->addExercise(StringifyToDemystify::class);
+$app->addExercise(LordOfTheStrings::class);
+$app->addExercise(TheReturnOfStatic::class);
 $app->addExercise(TheAttributesOfSuccess::class);
 
 $art = <<<ART
