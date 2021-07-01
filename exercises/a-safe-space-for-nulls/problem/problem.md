@@ -10,7 +10,7 @@ With the null safe operator it is possible to access variables like so:
 $capitalPopulation = $country?->capital?->population;
 ```
 
-If the `capital` property is null, the variable `$capitalPopulation` will also be null. Previously, without the null safe operator, this would be achieved like so:
+If the `$capital` property is null, the variable `$capitalPopulation` will also be null. Previously, without the null safe operator, this would be achieved like so:
 
 ```php
 $capitalPopulation = null;
@@ -44,25 +44,24 @@ Export the `$user` data to a CSV with the following columns:
 
 `First Name`, `Last Name`, `Age`, `House num`, `Addr 1`, `Addr 2`
 
- * The CSV should be comma delimited
- * The columns should read exactly as above, any mistake will trigger a failure
- * There should be one row for the column headers and one for the data
- * Any properties which are null on the user should be printed as empty fields in the CSV
- * The file should be named `users.csv` and exist next to your submission file (eg in the same directory)
+ * The CSV should be comma delimited.
+ * The columns should read exactly as above, any mistake will trigger a failure.
+ * There should be one row for the column headers and one for the data.
+ * Any properties which are null on the user should be printed as empty fields in the CSV.
+ * The file should be named `users.csv` and exist next to your submission file (eg in the same directory).
  
 And finally, the most important part, all properties which may be `NULL` should be accessed using the null safe operator!
 
 ### Advantages of the null safe operator
 
-* Much less code for simple operations where null is a valid value
+* Much less code for simple operations where null is a valid value.
 * If the operator is part of a chain anything to the right of the null will not be executed, the statements will be short-circuited.
-* Can be used on methods where null coalescing cannot `$user->getCreatedAt()->format() ?? null` where `getCreatedAt()` could return null or a `\DateTime` instance
+* Can be used on methods where null coalescing cannot `$user->getCreatedAt()->format() ?? null` where `getCreatedAt()` could return null or a `\DateTime` instance.
 
 ----------------------------------------------------------------------
 ## HINTS
 
-Remember your program will be passed no arguments. There will be a `User` object populated for you under the variable `$user`.
-It is available at the beginning of your script.
+Remember your program will be passed no arguments. There will be a `User` object populated for you under the variable `$user`. It is available at the beginning of your script.
 
 Documentation on the Null Safe Operator can be found by pointing your browser here:
 [https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.nullsafe]()

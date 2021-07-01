@@ -1,6 +1,5 @@
 You have been given a piece of code (look for `a-match-made-in-heaven.php` in your working directory) which is full of bugs.
-The code has been implemented badly, using a `switch` statement. Your job is to fix the code, by using the newly introduced 
-`match` expression in PHP 8. 
+The code has been implemented badly, using a `switch` statement. Your job is to fix the code, by using the newly introduced `match` expression in PHP 8. 
 
 The piece of code is supposed to take a string representing a keyboard keypress and convert it to its equivalent ANSI decimal code.
 
@@ -8,14 +7,13 @@ There are only four key presses supported at the minute (enter, up, down & escap
 
 Focus on converting the switch statement to a match expression.
 
-The key presses will be provided as strings via command line arguments. Only one keypress will be passed on each program invocation
-but it will be randomly picked from the four supported key presses.
+The key presses will be provided as strings via command line arguments. Only one keypress will be passed on each program invocation but it will be randomly picked from the four supported key presses.
 
 ### The advantages of match
 
 * Match uses strict equality, unlike switch which uses weak comparison and can lead to subtle bugs.
 * Each match arm does not fall through without a break statement, unlike switch.
-* Match expressions must be exhaustive, if there is no default arm specified, and no arm matches the given value, an `UnhandledMatchError` is thrown
+* Match expressions must be exhaustive, if there is no default arm specified, and no arm matches the given value, an `UnhandledMatchError` is thrown.
 * Match is an expression and thus returns a value, reducing unnecessary variables and reducing the risk of accessing undefined variables.
 
 

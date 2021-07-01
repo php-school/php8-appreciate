@@ -6,7 +6,7 @@ use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
-use PhpSchool\PHP8Appreciate\Exercise\PhpPromotion;
+use PhpSchool\PHP8Appreciate\Exercise\PhpGetsAPromotion;
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PHP8Appreciate\Exercise\TheAttributesOfSuccess;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
@@ -28,8 +28,8 @@ return [
     HaveTheLastSay::class => function (ContainerInterface $c) {
         return new HaveTheLastSay($c->get(PhpParser\Parser::class));
     },
-    PhpPromotion::class => function (ContainerInterface $c) {
-        return new PhpPromotion($c->get(PhpParser\Parser::class));
+    PhpGetsAPromotion::class => function (ContainerInterface $c) {
+        return new PhpGetsAPromotion($c->get(PhpParser\Parser::class));
     },
     CautionWithCatches::class => function (ContainerInterface $c) {
         return new CautionWithCatches($c->get(PhpParser\Parser::class), $c->get(\Faker\Generator::class));

@@ -22,7 +22,11 @@ use PhpSchool\PhpWorkshop\Solution\SingleFileSolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
 use ReflectionClass;
 
-class PhpPromotion extends AbstractExercise implements ExerciseInterface, ProvidesInitialCode, CliExercise, SelfCheck
+class PhpGetsAPromotion extends AbstractExercise implements
+    ExerciseInterface,
+    ProvidesInitialCode,
+    CliExercise,
+    SelfCheck
 {
     public function __construct(private Parser $parser)
     {
@@ -40,7 +44,9 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
 
     public function getInitialCode(): SolutionInterface
     {
-        return SingleFileSolution::fromFile(__DIR__ . '/../../exercises/php-promotion/initial/php-7-class.php');
+        return SingleFileSolution::fromFile(
+            __DIR__ . '/../../exercises/php-gets-a-promotion/initial/php-gets-a-promotion.php'
+        );
     }
 
     public function getType(): ExerciseType
@@ -172,7 +178,7 @@ class PhpPromotion extends AbstractExercise implements ExerciseInterface, Provid
         $type = $prop->getType();
 
         if (null === $type || !$type instanceof \ReflectionNamedType) {
-            throw new \RuntimeException(sprintf('Invalid property "%s"', $prop->getName()));
+            return '';
         }
         /** @var \ReflectionNamedType $type */
         return $type->getName();

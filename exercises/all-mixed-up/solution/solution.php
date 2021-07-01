@@ -1,5 +1,9 @@
 <?php
 
+if (file_exists('param.log')) {
+    unlink('param.log');
+}
+
 function logParameter(mixed $parameter): void
 {
     file_put_contents(

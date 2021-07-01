@@ -1,6 +1,6 @@
-As alluded to earlier in `Unite The Types` PHP's type system has been constantly and consistently growing for a long time.
+PHP's type system has been constantly and consistently growing and evolving for a long time.
 
-PHP8 comes with a new type `mixed` which is essentially a union of `array|bool|callable|int|float|object|resource|string|null`. 
+PHP 8 comes with a new type `mixed` which is essentially a union of `array|bool|callable|int|float|object|resource|string|null`. 
 
 This means that any value which can be produced in PHP will pass the check. Which is exactly the same as no type check.
 
@@ -11,7 +11,7 @@ If anything - it signals intent. Your function really does accept anything. It's
 ----------------------------------------------------------------------
 Create a program which contains one function named `logParameter`. It should have one parameter, and it's type must be `mixed`.
 
-Within your function you should log the type of the parameter that was passed. For this, you can use a new PHP8 function called `get_debug_type`.
+Within your function you should log the type of the parameter that was passed. For this, you can use a new PHP 8 function called `get_debug_type`.
 
 This function will give you a string identifier representing the type of any PHP variable.
 
@@ -51,6 +51,6 @@ Documentation on `get_debug_type` can be found by pointing your browser here:
 
 You might want to delete or empty your log file each time your program starts, otherwise it will grow and grow and the comparison will fail.
 
-Think about the return type of your `adder` function - you could declare it as `void`.
+Think about the return type of your `logParameter` function - you could declare it as `void`.
 
 If you are curious how we compare the output of your program when it includes time, we simply check that it matches the format, rather than comparing exactly. More specifically, we use the regex `/\d{2}:\d{2}:\d{2}/`.

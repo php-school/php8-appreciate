@@ -1,5 +1,4 @@
-PHP has a huge standard library with the most extravagant and highly specific string and array functions available. 
-`levenshtein` & `array_change_key_case` anyone??
+PHP has a huge standard library with the most extravagant and highly specific string and array functions available. `levenshtein` & `array_change_key_case` anyone??
 
 On the flip side, historically it has missed some very common string operations. There's always been a way to get the same results, but they are cumbersome and error prone.
 
@@ -19,7 +18,7 @@ Thankfully, PHP 8 has done away with all that nonsense. Please welcome the follo
 
 ----------------------------------------------------------------------
 
-Create a program the accepts two arguments, the first is a word, the second is a sentence (random words).
+Create a program that accepts two arguments, the first is a word, the second is a sentence (random words).
 
 You must print a table which contains the results of each of the above functions with the provided word and sentence.
 
@@ -38,7 +37,7 @@ The result column should be `true` or `false` based on the result of the corresp
 
 * Simpler and more concise.
 * Saner return types.
-* It is harder to get their usage wrong, for example checking for 0 vs false with `strpos`
+* It is harder to get their usage wrong, for example checking for 0 vs false with `strpos`.
 * The functions are faster, being implemented in C.
 * The operations require less function calls, for example no usages of `strlen` are required.
 

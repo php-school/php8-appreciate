@@ -2,11 +2,11 @@
 
 class RowVisitor
 {
-    private $visitor;
+    private \Closure $visitor;
 
-    private $key;
+    private string $key;
 
-    protected $basePath;
+    protected string $basePath;
 
     public function __construct(\Closure $visitor, string $key, array $config = [])
     {

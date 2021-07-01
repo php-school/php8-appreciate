@@ -8,7 +8,7 @@ class FailedResponse {
 
     public function __toString()
     {
-        return "Status: {$this->status} \nError: {$this->error}";
+        return "Status: {$this->status}\nError: {$this->error}\n";
     }
 }
 
