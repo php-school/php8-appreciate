@@ -1,6 +1,7 @@
 {
     "name": "php-school/php8-appreciate",
     "description": "2020 PHP: A showcase and classroom for the cutting edge features of PHP 8",
+    "type": "php-school-workshop",
     "keywords": [
         "cli",
         "console",
