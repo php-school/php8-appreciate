@@ -10,7 +10,6 @@ use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
 class LordOfTheStringsTest extends WorkshopExerciseTest
 {
-
     public function getApplication(): Application
     {
         return require __DIR__ . '/../../app/bootstrap.php';

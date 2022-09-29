@@ -38,7 +38,6 @@ class ASafeSpaceForNulls extends AbstractExercise implements
     FileComparisonExerciseCheck,
     SelfCheck
 {
-
     private ?Patch $patch = null;
 
     public function __construct(private Parser $parser, private FakerGenerator $faker)

@@ -21,7 +21,6 @@ class LordOfTheStrings extends AbstractExercise implements
     FunctionRequirementsExerciseCheck,
     ComposerExerciseCheck
 {
-
     public function __construct(private Generator $faker)
     {
     }
