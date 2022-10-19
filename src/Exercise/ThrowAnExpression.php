@@ -32,7 +32,7 @@ class ThrowAnExpression extends AbstractExercise implements
     ProvidesInitialCode,
     SubmissionPatchable
 {
-    public function __construct(private Parser $parser, private FakerGenerator $faker)
+    public function __construct(private Parser $parser)
     {
     }
 
