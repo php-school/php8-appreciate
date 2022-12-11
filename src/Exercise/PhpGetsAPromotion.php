@@ -22,6 +22,9 @@ use PhpSchool\PhpWorkshop\Solution\SingleFileSolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
 use ReflectionClass;
 
+use function PhpSchool\PhpWorkshop\collect;
+use function PhpSchool\PhpWorkshop\pluralise;
+
 class PhpGetsAPromotion extends AbstractExercise implements
     ExerciseInterface,
     ProvidesInitialCode,

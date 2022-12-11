@@ -21,6 +21,8 @@ use PhpSchool\PhpWorkshop\Result\FailureInterface;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
 use PhpSchool\PhpWorkshop\Result\Success;
 
+use function PhpSchool\PhpWorkshop\collect;
+
 class HaveTheLastSay extends AbstractExercise implements
     ExerciseInterface,
     CliExercise,
