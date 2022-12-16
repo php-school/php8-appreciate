@@ -119,6 +119,7 @@ class HaveTheLastSay extends AbstractExercise implements
             return $result;
         }
 
+        /** @var FuncCall $funcCall */
         $funcCall = (new NodeFinder())->findFirst(
             $statements,
             fn ($node) => $node instanceof FuncCall && $node->name->toString() === 'fgetcsv'
