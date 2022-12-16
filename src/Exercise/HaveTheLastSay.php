@@ -125,32 +125,32 @@ class HaveTheLastSay extends AbstractExercise implements
             fn ($node) => $node instanceof FuncCall && $node->name->toString() === 'fgetcsv'
         );
 
-        if ($funcCall->args[0]->name !== null) {
+        if ($funcCall->getArgs()[0]->name !== null) {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'The stream argument must be specified using a positional parameter'
             );
         }
 
-        if (count($funcCall->args) > 2) {
+        if (count($funcCall->getArgs()) > 2) {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'You should only specify the stream and separator arguments, no others'
             );
         }
 
-        if (!isset($funcCall->args[1])) {
+        if (!isset($funcCall->getArgs()[1])) {
             return Failure::fromNameAndReason($this->getName(), 'The separator argument has not been specified');
         }
 
-        if (!$funcCall->args[1]->name) {
+        if (!$funcCall->getArgs()[1]->name) {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'The second positional argument should not be specified'
             );
         }
 
-        if ($funcCall->args[1]->name->name !== 'separator') {
+        if ($funcCall->getArgs()[1]->name->name !== 'separator') {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'A named argument has been used, but not for the separator argument'
