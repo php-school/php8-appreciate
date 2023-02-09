@@ -4,6 +4,7 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 
 use PhpSchool\PHP8Appreciate\Exercise\LordOfTheStrings;
 use PhpSchool\PhpWorkshop\Application;
+use PhpSchool\PhpWorkshop\Result\ComposerFailure;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
 use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
@@ -25,7 +26,12 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
         $this->runExercise('solution-no-code.php');
 
         $this->assertVerifyWasNotSuccessful();
-        $this->assertResultsHasFailure(Failure::class, 'No composer.json file found');
+        $this->assertResultsHasFailureAndMatches(ComposerFailure::class, function (ComposerFailure $composerFailure) {
+            self::assertTrue($composerFailure->isMissingComponent());
+            self::assertEquals('composer.json', $composerFailure->getMissingComponent());
+
+            return true;
+        });
     }
 
     public function testWithNoCode(): void

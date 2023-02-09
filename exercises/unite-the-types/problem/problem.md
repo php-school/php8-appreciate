@@ -30,8 +30,7 @@ The function you implement must be called `adder`.
 
 It is up to you to pass the numbers to your function.
 
-Documentation on union types can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.union]()
+{{ doc 'union types' en language.types.declarations.php#language.types.declarations.union }}
 
 ----------------------------------------------------------------------
 ## EXTRA

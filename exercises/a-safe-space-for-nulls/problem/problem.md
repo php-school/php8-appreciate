@@ -63,8 +63,8 @@ And finally, the most important part, all properties which may be `NULL` should 
 
 Remember your program will be passed no arguments. There will be a `User` object populated for you under the variable `$user`. It is available at the beginning of your script.
 
-Documentation on the Null Safe Operator can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.oop5.basic.php#language.oop5.basic.nullsafe]()
+{{ doc 'Null Safe Operator' en language.oop5.basic.php#language.oop5.basic.nullsafe }}
+
 
 ----------------------------------------------------------------------
 ## EXTRA

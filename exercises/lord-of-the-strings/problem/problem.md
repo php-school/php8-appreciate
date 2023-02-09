@@ -44,17 +44,23 @@ The result column should be `true` or `false` based on the result of the corresp
 ----------------------------------------------------------------------
 ## HINTS
 
+{{ cli }}
 Point your browser to [https://getcomposer.org/doc/00-intro.md](https://getcomposer.org/doc/00-intro.md) which will walk you through **Installing Composer** if you haven't already!
 
 Use `composer init` to create your `composer.json` file with interactive search.
+{{ cli }}
+
+{{ cloud }}
+Composer is installed and ready to go on cloud, use the `Composer Deps` button in the editor to search for and install your dependencies. While you should read the documentation for [Composer](https://getcomposer.org/doc/00-intro.md), it's important to note that the way we manage dependencies on PHP School cloud, is not how you would manage them in your own projects. We abstract away the `composer.json` file to keep it simple.
+{{ cloud }}
 
 For more details look at the docs for...
 
-**Composer** - [https://getcomposer.org/doc/01-basic-usage.md](https://getcomposer.org/doc/01-basic-usage.md)
-**Symfony Console** - [https://symfony.com/doc/current/components/console.html](https://symfony.com/doc/current/components/console.html)
-**str_contains** - [https://www.php.net/manual/en/function.str-contains.php](https://www.php.net/manual/en/function.str-contains.php)
-**str_starts_with** - [https://www.php.net/manual/en/function.str-starts-with.php](https://www.php.net/manual/en/function.str-starts-with.php)
-**str_ends_with** - [https://www.php.net/manual/en/function.str-ends-with.php](https://www.php.net/manual/en/function.str-ends-with.php)
+* **Composer** - [https://getcomposer.org/doc/01-basic-usage.md](https://getcomposer.org/doc/01-basic-usage.md)
+* **Symfony Console** - [https://symfony.com/doc/current/components/console.html](https://symfony.com/doc/current/components/console.html)
+* **str_contains** - [https://www.php.net/manual/en/function.str-contains.php](https://www.php.net/manual/en/function.str-contains.php)
+* **str_starts_with** - [https://www.php.net/manual/en/function.str-starts-with.php](https://www.php.net/manual/en/function.str-starts-with.php)
+* **str_ends_with** - [https://www.php.net/manual/en/function.str-ends-with.php](https://www.php.net/manual/en/function.str-ends-with.php)
 
 For Symfony Console you will want to look specifically for the Table Helper.
 

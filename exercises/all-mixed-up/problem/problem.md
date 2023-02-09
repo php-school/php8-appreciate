@@ -40,11 +40,9 @@ We will call your function automatically with a bunch of different types to make
 
 We will specifically check that you used the `mixed` type. Omitting the type will not pass.
 
-Documentation on the `mixed` type can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.types.declarations.php#language.types.declarations.mixed]()
+{{ doc 'mixed' en language.types.declarations.php#language.types.declarations.mixed }}
 
-Documentation on `get_debug_type` can be found by pointing your browser here:
-[https://www.php.net/manual/en/function.get-debug-type.php]()
+{{ doc 'get_debug_type' en function.get-debug-type.php }}
 
 ----------------------------------------------------------------------
 ## EXTRA

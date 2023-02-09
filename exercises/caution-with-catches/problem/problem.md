@@ -13,7 +13,7 @@ For this exercise this function will always throw an exception but unfortunately
 
 To pass this exercise you will need to call the `verify_password` function with the password provided, handle the exception and output `"Given password is invalid, please try again"`. 
 
-PHP 8 allows you to handle the exception without capturing the exception itself which will ensure this message is not leaked further.
+PHP 8 allows you to handle the exception without capturing the exception itself in to a variable, which will ensure this message is not leaked further.
 
 ### The advantages of non capturing catches
 
@@ -24,5 +24,5 @@ PHP 8 allows you to handle the exception without capturing the exception itself 
 ----------------------------------------------------------------------
 ## HINTS
 
-Documentation on the non-capturing catches feature is sparse without examples, so the RFC has the most amount of detail:
-[https://wiki.php.net/rfc/non-capturing_catches]()
+Documentation on the non-capturing catches feature is sparse and without examples, so the RFC has the most amount of detail:
+[https://wiki.php.net/rfc/non-capturing_catches](https://wiki.php.net/rfc/non-capturing_catches)

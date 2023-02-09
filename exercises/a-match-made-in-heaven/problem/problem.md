@@ -1,4 +1,4 @@
-You have been given a piece of code (look for `a-match-made-in-heaven.php` in your working directory) which is full of bugs.
+You have been given a piece of code (look for `a-match-made-in-heaven.php` in {{context cli 'your working directory'}} {{context cloud 'the editor'}}) which is full of bugs.
 The code has been implemented badly, using a `switch` statement. Your job is to fix the code, by using the newly introduced `match` expression in PHP 8. 
 
 The piece of code is supposed to take a string representing a keyboard keypress and convert it to its equivalent ANSI decimal code.
@@ -20,8 +20,7 @@ The key presses will be provided as strings via command line arguments. Only one
 ----------------------------------------------------------------------
 ## HINTS
 
-Documentation on the `match` expression can be found by pointing your browser here:
-[https://www.php.net/manual/en/control-structures.match.php]()
+{{ doc match en control-structures.match.php }}
 
 Remember the first argument will be a randomly picked supported keypress.
 
