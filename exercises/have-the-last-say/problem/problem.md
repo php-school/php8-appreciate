@@ -27,7 +27,7 @@ htmlspecialchars($string, ENT_COMPAT | ENT_HTML, 'UTF-8', false);
 
 We only want to change the last argument (double_encode) of the function to false (the default is true). However, we are forced to specify all the other arguments, even though they have not changed from the defaults.
 
-Named arguments allows to write the same, but in a more succinct fashion:
+Named arguments allows us to write the same, but in a more succinct fashion:
 
 ```php
 htmlspecialchars($string, double_encode: false);
@@ -51,14 +51,11 @@ You will most likely need a loop to process all the data in the file.
 
 You will need to keep reading from the file until it has been fully read. `feof` is your friend here and will inform you whether there is any data left to read.
 
-Documentation on the `fopen` function can be found by pointing your browser here:
-[https://www.php.net/manual/en/function.fopen.php]()
+{{ doc 'fopen' en function.fopen.php }}
 
-Documentation on the `fgetcsv` function can be found by pointing your browser here:
-[https://www.php.net/manual/en/function.fgetcsv.php]()
+{{ doc 'fgetcsv' en function.fgetcsv.php }}
 
-Documentation on the `feof` function can be found by pointing your browser here:
-[https://www.php.net/manual/en/function.feof.php]()
+{{ doc 'feof' en function.feof.php }}
 
 ----------------------------------------------------------------------
 ## EXTRA

@@ -24,6 +24,6 @@ Based on those values you should print a specific message followed by a new line
 ----------------------------------------------------------------------
 ## HINTS
 
-Documentation on the fdiv function can be found by pointing your browser here:
-[https://www.php.net/manual/en/function.fdiv.php]()
+{{ doc 'fdiv' en function.fdiv.php }}
+
 

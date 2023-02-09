@@ -1,4 +1,4 @@
-You have been given a piece of code (look for `php-gets-a-promotion.php` in your working directory) which provides a class written for PHP 7.
+You have been given a piece of code (look for `php-gets-a-promotion.php` in {{context cli 'your working directory'}} {{context cloud 'the editor'}}) which provides a class written for PHP 7.
 
 The code itself works well, assigning constructor arguments to the class properties.
 
@@ -18,12 +18,11 @@ Focus on converting the constructor to a terse format using constructor property
 ----------------------------------------------------------------------
 ## HINTS
 
-Documentation on the constructor property promotion feature can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion]()
+{{ doc 'Constructor Property Promotion' en language.oop5.decon.php#language.oop5.decon.constructor.promotion }}
 
-Remember to keep the same visibility for the properties
+Remember to keep the same visibility for the properties.
 
-You will be expected to make use of the constructor property promotion feature
+You will be expected to make use of the constructor property promotion feature.
 
-You should have less code than the provided initial code
+You should have less code than the provided initial code.
 

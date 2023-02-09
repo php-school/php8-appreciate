@@ -1,6 +1,6 @@
 `__toString()` is a magic class method long-standing in PHP but never truly something you could rely on unless you rolled your own interface. All that has changed with the simple introduction of the `Stringable` interface in PHP 8.
 
-`Stringable` is a simple interface that requires the implementation of `__toString(): string`
+`Stringable` is a simple interface that requires the implementation of the method `__toString(): string`
 
 ----------------------------------------------------------------------
 
@@ -35,13 +35,11 @@ Your program may also receive successful payloads, which you should ignore for t
 
 To easily read the request body you can use `file_get_contents('php://input')`
 
-For more details look at the docs for...
+{{ doc 'Stringable' en class.stringable.php }}
 
-**Stringable** - [https://www.php.net/manual/en/class.stringable.php]()
-
-Note that while the `Stringable` interface isn't required to pass the type hint check, however, it should be used if not only to show intent.  
+Note that while the `Stringable` interface isn't required to pass the type hint check (simply implementing the method `__toString` is enough), it should be used if not only to signal intent.  
 
 Oh, and don't forget about the basics for classes and interfaces :)
 
-**class** - [https://www.php.net/manual/en/language.oop5.basic.php]()
-**interfaces** - [https://www.php.net/manual/en/language.oop5.interfaces.php]()
+* **class** - [https://www.php.net/manual/en/language.oop5.basic.php](https://www.php.net/manual/en/language.oop5.basic.php)
+* **interfaces** - [https://www.php.net/manual/en/language.oop5.interfaces.php](https://www.php.net/manual/en/language.oop5.interfaces.php)

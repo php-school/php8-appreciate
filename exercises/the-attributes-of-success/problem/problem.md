@@ -1,15 +1,17 @@
-You have been given a few pieces of code (look for `attributes.php`, `deserialize.php` & `the-attributes-of-success.php` in your working directory).
+You have been given a few pieces of code (look for `attributes.php`, `deserialize.php` & `the-attributes-of-success.php` in {{context cli 'your working directory'}} {{context cloud 'the editor'}}).
 
 Your entry point is `the-attributes-of-success.php`. This is the file you should edit and work on. The other files should not be modified. However, they are included by `the-attributes-of-success.php`.
 
+{{ cli }}
 You can run and verify your program like so:
 
 ```sh
 $ {appname} run the-attributes-of-success.php
 $ {appname} verify the-attributes-of-success.php
 ```
+{{ cli }}
 
-Your task is split into two sections. The overall task is to write a class using properties and attributes which describe how to map data to an instance of the class.
+Your task is split in to two sections. The overall task is to write a class using properties and attributes which describe how to map data to an instance of the class.
 
 The data will be passed to you in a JSON encoded string via the first command line argument. 
 
@@ -68,6 +70,7 @@ Use the `Skip` attribute on the `id` property of our `Review` class to tell our 
 
 By now you should be able to call the `deserialize` function with the `JSON` data and your class name.
 
+{{ cli }}
 When executing your program with
 
 ```sh
@@ -75,6 +78,11 @@ $ {appname} run the-attributes-of-success.php
 ```
 
 You should see a dump of your `Review` instance.
+{{ cli }}
+
+{{ cloud }}
+When you execute your program by pressing `Run` you should see a dump of your `Review` instance.
+{{ cloud }}
 
 Here comes our problem: The reviewers name is not anonymous. We have to comply with strict privacy laws, we cannot display this data without the reviewer's permission.
 
@@ -126,8 +134,7 @@ The last task is to dump your object instance out using the PHP function `var_du
 ----------------------------------------------------------------------
 ## HINTS
 
-Documentation on the Attributes feature can be found by pointing your browser here:
-[https://www.php.net/manual/en/language.attributes.overview.php]()
+{{ doc 'Attributes' en language.attributes.overview.php }}
 
 Remember, do not edit `attributes.php` or `deserialize.php` - verification will fail if you do. Feel free to read the files to get a better understanding of the deserialization process.
 
@@ -135,10 +142,10 @@ You must call the `deserialize` function and you must use the `var_dump` functio
 
 If you want to see the `JSON` data - use `var_dump` to dump it out.
 
-For verification purposes, the order the properties defined in your `Review` class is important. Define them in the same order they are described to you.
+For verification purposes, the order the properties are defined in your `Review` class is important. Define them in the same order they are described to you.
 
 ## Extra
 
-If you're not sure how to access command line arguments - you should maybe try a different workshop which covers that topic. Try `learnyouphp`.
+If you're not sure how to access command line arguments - you should maybe try a different workshop which covers that topic. Try the Learn you PHP workshop.
 
 `json_decode` can fail if it is passed a malformed string. Wrap the decode in a `try\catch` statement and pass the `JSON_THROW_ON_ERROR` flag to `json_decode`'s fourth parameter.
