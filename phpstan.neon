@@ -2,7 +2,6 @@ parameters:
     treatPhpDocTypesAsCertain: false
     ignoreErrors:
         - '#Call to an undefined method PhpParser\\Node\\Expr\|PhpParser\\Node\\Name\:\:toString\(\)#'
-        - '#Parameter \#1 \$array of function array_flip expects array<int\|string>, array<int, int\|string>\|int\|string given.#'
         -
             message: '#Parameter \#1 \$callback of function array_map expects \(callable\(PhpParser\\Node\\Identifier\|PhpParser\\Node\\IntersectionType|PhpParser\\Node\\Name\)\: mixed\)\|null, Closure\(PhpParser\\Node\\Identifier\)\: string given\.#'
             path: src/Exercise/UniteTheTypes.php
