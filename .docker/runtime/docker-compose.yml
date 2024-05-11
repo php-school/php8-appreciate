@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  runtime:
+    image: php8appreciate-runtime
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - type: bind
+        source: ${SOLUTION}
+        target: '/solution'
+

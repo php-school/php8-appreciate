@@ -18,15 +18,18 @@ use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
 use PhpSchool\PhpWorkshop\Check\FunctionRequirementsCheck;
+use PhpSchool\PhpWorkshop\Environment\CliTestEnvironment;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\ProvidesInitialCode;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FileComparisonExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FunctionRequirementsExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
 use PhpSchool\PhpWorkshop\ExerciseDispatcher;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
@@ -57,10 +60,29 @@ class TheAttributesOfSuccess extends AbstractExercise implements
         return 'PHP 8\'s Attributes';
     }
 
-    public function configure(ExerciseDispatcher $dispatcher): void
+    public function getRequiredChecks(): array
     {
-        $dispatcher->requireCheck(FileComparisonCheck::class);
-        $dispatcher->requireCheck(FunctionRequirementsCheck::class);
+        return [
+            FileComparisonCheck::class,
+            FunctionRequirementsCheck::class
+        ];
+    }
+
+    public function defineTestScenario(): CliScenario
+    {
+        return (new CliScenario())
+            ->withExecution([
+                json_encode(
+                    [
+                        'id' => random_int(0, 100),
+                        'comment' => $this->faker->sentence(4),
+                        'rating' => $this->faker->numberBetween(0, 5),
+                        'reviewer' => $this->faker->userName(),
+                        'date' => $this->faker->date('d-m-Y')
+                    ],
+                    JSON_THROW_ON_ERROR
+                )
+            ]);
     }
 
     public function getInitialCode(): SolutionInterface
@@ -83,28 +105,10 @@ class TheAttributesOfSuccess extends AbstractExercise implements
         return ExerciseType::CLI();
     }
 
-    public function getArgs(): array
-    {
-        return [
-            [
-                json_encode(
-                    [
-                        'id' => random_int(0, 100),
-                        'comment' => $this->faker->sentence(4),
-                        'rating' => $this->faker->numberBetween(0, 5),
-                        'reviewer' => $this->faker->userName(),
-                        'date' => $this->faker->date('d-m-Y')
-                    ],
-                    JSON_THROW_ON_ERROR
-                )
-            ]
-        ];
-    }
-
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         /** @var Class_|null $classStmt */
         $classStmt = (new NodeFinder())->findFirst($statements, function (Node $node) {

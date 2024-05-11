@@ -17,15 +17,17 @@ use PhpParser\Node\Stmt\Expression;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
+use PhpSchool\PhpWorkshop\Environment\CliTestEnvironment;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\Exercise\SubmissionPatchable;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FileComparisonExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
 use PhpSchool\PhpWorkshop\ExerciseDispatcher;
-use PhpSchool\PhpWorkshop\Input\Input;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Patch;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
@@ -59,14 +61,15 @@ class ASafeSpaceForNulls extends AbstractExercise implements
         return new ExerciseType(ExerciseType::CLI);
     }
 
-    public function getArgs(): array
+    public function getRequiredChecks(): array
     {
-        return [];
+        return [FileComparisonCheck::class];
     }
 
-    public function configure(ExerciseDispatcher $dispatcher): void
+    public function defineTestScenario(): CliScenario
     {
-        $dispatcher->requireCheck(FileComparisonCheck::class);
+        return (new CliScenario())
+            ->withExecution();
     }
 
     public function getPatch(): Patch
@@ -171,10 +174,10 @@ class ASafeSpaceForNulls extends AbstractExercise implements
             });
     }
 
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         $ageFetch = $this->findNullSafePropFetch($statements, 'user', 'age');
         $addressFetch = $this->findAllNullSafePropertyFetch($statements, 'user', 'address');

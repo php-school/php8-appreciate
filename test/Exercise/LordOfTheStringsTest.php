@@ -23,7 +23,7 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
 
     public function testWithNoComposerFile(): void
     {
-        $this->runExercise('solution-no-code.php');
+        $this->runExercise('solution-no-composer.php');
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertResultsHasFailureAndMatches(ComposerFailure::class, function (ComposerFailure $composerFailure) {

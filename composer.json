@@ -22,7 +22,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "php-school/php-workshop": "dev-master"
+        "php-school/php-workshop": "dev-05-09-remove_temporary_solution_mapper"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
