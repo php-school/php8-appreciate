@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "861a3809372ea7552bbd417ed292aff9",
+    "content-hash": "eb93dbc5c18a5f711fbb75865235d490",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1126,16 +1126,16 @@
         },
         {
             "name": "php-school/php-workshop",
-            "version": "dev-master",
+            "version": "dev-configurable-process-factory",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "ce202fb47f81c344c18b5ce7006a474ed7862702"
+                "reference": "65049c5091e346413b645b04f408c953143747c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/ce202fb47f81c344c18b5ce7006a474ed7862702",
-                "reference": "ce202fb47f81c344c18b5ce7006a474ed7862702",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/65049c5091e346413b645b04f408c953143747c6",
+                "reference": "65049c5091e346413b645b04f408c953143747c6",
                 "shasum": ""
             },
             "require": {
@@ -1165,7 +1165,6 @@
                 "phpunit/phpunit": "^8.5",
                 "yoast/phpunit-polyfills": "^0.2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "bamarni-bin": {
@@ -1210,9 +1209,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-school/php-workshop/issues",
-                "source": "https://github.com/php-school/php-workshop/tree/master"
+                "source": "https://github.com/php-school/php-workshop/tree/configurable-process-factory"
             },
-            "time": "2024-05-17T19:12:46+00:00"
+            "time": "2024-05-17T19:27:26+00:00"
         },
         {
             "name": "php-school/terminal",

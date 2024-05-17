@@ -34,7 +34,7 @@ class ThrowAnExpressionTest extends WorkshopExerciseTest
         self::assertInstanceOf(Success::class, $output->getResults()[1]);
 
         self::assertMatchesRegularExpression(
-            '/Fatal error:  Uncaught Exception: Access denied!/',
+            '/Fatal error: Uncaught Exception: Access denied!/',
             $output->getResults()[0]->getReason()
         );
 

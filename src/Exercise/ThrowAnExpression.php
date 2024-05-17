@@ -10,7 +10,6 @@ use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\If_;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
-use PhpSchool\PhpWorkshop\Environment\CgiTestEnvironment;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CgiExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
