@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
 
+    user: ${UID}:${GID}
+
     volumes:
       - type: bind
         source: ${SOLUTION}

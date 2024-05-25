@@ -30,9 +30,6 @@ jobs:
       - name: Install Dependencies
         run: composer update
 
-      - name: Build docker image
-        run: docker compose -p phpunit -f .docker/runtime/docker-compose.yml build
-
       - name: Run phpunit tests
         run: |
           mkdir -p build/logs
