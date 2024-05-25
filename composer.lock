@@ -1130,12 +1130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-school/php-workshop.git",
-                "reference": "86979bef6c82f5b835dc8a2906417a8c9d66b7c3"
+                "reference": "0790024a850786bfcbcefe7873da37bcc7b8e22d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/86979bef6c82f5b835dc8a2906417a8c9d66b7c3",
-                "reference": "86979bef6c82f5b835dc8a2906417a8c9d66b7c3",
+                "url": "https://api.github.com/repos/php-school/php-workshop/zipball/0790024a850786bfcbcefe7873da37bcc7b8e22d",
+                "reference": "0790024a850786bfcbcefe7873da37bcc7b8e22d",
                 "shasum": ""
             },
             "require": {
@@ -1211,7 +1211,7 @@
                 "issues": "https://github.com/php-school/php-workshop/issues",
                 "source": "https://github.com/php-school/php-workshop/tree/docker-fixes"
             },
-            "time": "2024-05-25T12:02:59+00:00"
+            "time": "2024-05-25T13:44:46+00:00"
         },
         {
             "name": "php-school/terminal",
