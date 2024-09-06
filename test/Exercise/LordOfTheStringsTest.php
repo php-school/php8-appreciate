@@ -23,7 +23,7 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
 
     public function testWithNoComposerFile(): void
     {
-        $this->runExercise('solution-no-code.php');
+        $this->runExercise('solution-no-composer.php');
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertResultsHasFailureAndMatches(ComposerFailure::class, function (ComposerFailure $composerFailure) {
@@ -36,7 +36,7 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
 
     public function testWithNoCode(): void
     {
-        $this->runExercise('no-code/solution.php');
+        $this->runExercise('no-code/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -45,7 +45,7 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
 
     public function testUsingBannedFunction(): void
     {
-        $this->runExercise('banned-functions/solution.php');
+        $this->runExercise('banned-functions/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -73,7 +73,7 @@ class LordOfTheStringsTest extends WorkshopExerciseTest
 
     public function testWithCorrectSolution(): void
     {
-        $this->runExercise('correct-solution/solution.php');
+        $this->runExercise('correct-solution/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasSuccessful();
     }

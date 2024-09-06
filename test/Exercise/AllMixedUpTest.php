@@ -21,12 +21,6 @@ class AllMixedUpTest extends WorkshopExerciseTest
         return require __DIR__ . '/../../app/bootstrap.php';
     }
 
-    public function tearDown(): void
-    {
-        $this->removeSolutionAsset('param.log');
-        parent::tearDown();
-    }
-
     public function testSuccessfulSolution(): void
     {
         $this->runExercise('solution-correct.php');

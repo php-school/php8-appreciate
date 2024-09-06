@@ -13,7 +13,9 @@ use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\ProvidesInitialCode;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
@@ -57,15 +59,15 @@ class PhpGetsAPromotion extends AbstractExercise implements
         return ExerciseType::CLI();
     }
 
-    public function getArgs(): array
+    public function defineTestScenario(): CliScenario
     {
-        return [];
+        return (new CliScenario())->withExecution();
     }
 
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
         /** @var Class_|null $classNode */
         $classNode = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class);
 
@@ -73,7 +75,7 @@ class PhpGetsAPromotion extends AbstractExercise implements
             return Failure::fromNameAndReason($this->getName(), 'No class was found');
         }
 
-        (static fn () => require $input->getRequiredArgument('program'))();
+        (static fn () => require $context->getEntryPoint())();
 
         /** @var class-string $className */
         $reflectionClass = new ReflectionClass($className);

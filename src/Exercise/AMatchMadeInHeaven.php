@@ -9,20 +9,22 @@ use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
-use PhpSchool\PhpWorkshop\Exercise\BaseExerciseTrait;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
-use PhpSchool\PhpWorkshop\Exercise\DefaultExercise;
-use PhpSchool\PhpWorkshop\Exercise\ExerciseAssets;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\ProvidesInitialCode;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
+use PhpSchool\PhpWorkshop\ExerciseDispatcher;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
 use PhpSchool\PhpWorkshop\Result\Success;
 use PhpSchool\PhpWorkshop\Solution\SingleFileSolution;
 use PhpSchool\PhpWorkshop\Solution\SolutionInterface;
+
+use function PhpSchool\PhpWorkshop\collect;
 
 class AMatchMadeInHeaven extends AbstractExercise implements
     ExerciseInterface,
@@ -44,8 +46,10 @@ class AMatchMadeInHeaven extends AbstractExercise implements
         return 'PHP 8\'s Match Expression';
     }
 
-    public function getArgs(): array
+    public function defineTestScenario(): CliScenario
     {
+        $environment = new CliScenario();
+
         $runs = [
             ['enter'],
             ['esc'],
@@ -55,7 +59,11 @@ class AMatchMadeInHeaven extends AbstractExercise implements
 
         shuffle($runs);
 
-        return $runs;
+        foreach ($runs as $run) {
+            $environment->withExecution($run);
+        }
+
+        return $environment;
     }
 
     public function getInitialCode(): SolutionInterface
@@ -65,9 +73,9 @@ class AMatchMadeInHeaven extends AbstractExercise implements
         );
     }
 
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         if (null === $statements || empty($statements)) {
             return Failure::fromNameAndReason($this->getName(), 'No code was found');

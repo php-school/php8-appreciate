@@ -17,10 +17,12 @@ use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CgiExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CgiScenario;
 use PhpSchool\PhpWorkshop\Exercise\SubmissionPatchable;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FunctionRequirementsExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
 use PhpSchool\PhpWorkshop\ExerciseDispatcher;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Patch;
 use PhpSchool\PhpWorkshop\Result\Failure;
@@ -55,17 +57,16 @@ class StringifyToDemystify extends AbstractExercise implements
         return ExerciseType::CGI();
     }
 
-    public function configure(ExerciseDispatcher $dispatcher): void
+    public function getRequiredChecks(): array
     {
-        $dispatcher->requireCheck(FunctionRequirementsCheck::class);
+        return [FunctionRequirementsCheck::class];
     }
 
-    /**
-     * @return array<RequestInterface>
-     */
-    public function getRequests(): array
+    public function defineTestScenario(): CgiScenario
     {
-        return array_map(
+        $environment = new CgiScenario();
+
+        $requests = array_map(
             fn () => new Request(
                 'POST',
                 'https://phpschool.io/api',
@@ -74,6 +75,12 @@ class StringifyToDemystify extends AbstractExercise implements
             ),
             array_fill(0, random_int(3, 6), null)
         );
+
+        foreach ($requests as $request) {
+            $environment->withExecution($request);
+        }
+
+        return $environment;
     }
 
     /**
@@ -132,10 +139,10 @@ class StringifyToDemystify extends AbstractExercise implements
         return [];
     }
 
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var Stmt[] $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         /** @var Class_|null $classStmt */
         $classStmt = (new NodeFinder())->findFirstInstanceOf($statements, Class_::class);
