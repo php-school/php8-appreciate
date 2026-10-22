@@ -3,5 +3,10 @@
   "description": "String manipulation with Composer",
   "require": {
     "symfony/console": "^7.4"
+  },
+  "config": {
+    "platform": {
+      "php": "8.2.0"
+    }
   }
 }
