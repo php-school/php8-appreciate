@@ -8,9 +8,9 @@ use PhpSchool\PhpWorkshop\Result\Cli\RequestFailure;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FileComparisonFailure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
-use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
+use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class TheAttributesOfSuccessTest extends ExerciseTestCase
+class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 {
     public function getExerciseClass(): string
     {

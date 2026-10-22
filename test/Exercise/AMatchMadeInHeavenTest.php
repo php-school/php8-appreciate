@@ -7,9 +7,9 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 use PhpSchool\PHP8Appreciate\Exercise\AMatchMadeInHeaven;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
+use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class AMatchMadeInHeavenTest extends ExerciseTestCase
+class AMatchMadeInHeavenTest extends WorkshopExerciseTest
 {
     public function getApplication(): Application
     {

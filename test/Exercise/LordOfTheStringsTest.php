@@ -7,9 +7,9 @@ use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\ComposerFailure;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
-use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
+use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class LordOfTheStringsTest extends ExerciseTestCase
+class LordOfTheStringsTest extends WorkshopExerciseTest
 {
     public function getApplication(): Application
     {

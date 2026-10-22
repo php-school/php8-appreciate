@@ -5,9 +5,9 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 use PhpSchool\PHP8Appreciate\Exercise\InfiniteDivisions;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
+use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class InfiniteDivisionsTest extends ExerciseTestCase
+class InfiniteDivisionsTest extends WorkshopExerciseTest
 {
     public function getExerciseClass(): string
     {

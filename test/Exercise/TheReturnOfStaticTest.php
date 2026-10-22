@@ -5,9 +5,9 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 use PhpSchool\PHP8Appreciate\Exercise\TheReturnOfStatic;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
+use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
 
-class TheReturnOfStaticTest extends ExerciseTestCase
+class TheReturnOfStaticTest extends WorkshopExerciseTest
 {
     public function getExerciseClass(): string
     {
