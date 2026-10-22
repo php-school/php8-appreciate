@@ -144,8 +144,8 @@ class PhpGetsAPromotion extends AbstractExercise implements
 
         $obj = new $className(...$args);
 
+        /** @var array<string, mixed> $actual */
         $actual = $properties
-            ->each(fn (\ReflectionProperty $prop) => $prop->setAccessible(true))
             ->flatMap(fn (\ReflectionProperty $prop) => [
                 $prop->getName() => $prop->isInitialized($obj) ? $prop->getValue($obj) : null
             ])

@@ -83,9 +83,12 @@ class ASafeSpaceForNulls extends AbstractExercise implements
         $statements[] = $factory->class('User')
             ->addStmt($factory->property('firstName')->setType('string')->makePublic())
             ->addStmt($factory->property('lastName')->setType('string')->makePublic())
-            ->addStmt($factory->property('age')->setType(new NullableType('int'))->makePublic()->setDefault(null))
+            ->addStmt($factory->property('age')
+                ->setType(new NullableType(new Identifier('int')))
+                ->makePublic()
+                ->setDefault(null))
             ->addStmt($factory->property('address')
-                ->setType(new NullableType('Address'))
+                ->setType(new NullableType(new Identifier('Address')))
                 ->makePublic()
                 ->setDefault(null))
             ->getNode();
@@ -94,7 +97,7 @@ class ASafeSpaceForNulls extends AbstractExercise implements
             ->addStmt($factory->property('number')->setType('int')->makePublic())
             ->addStmt($factory->property('addressLine1')->setType('string')->makePublic())
             ->addStmt($factory->property('addressLine2')
-                ->setType(new NullableType('string'))
+                ->setType(new NullableType(new Identifier('string')))
                 ->makePublic()
                 ->setDefault(null))
             ->getNode();

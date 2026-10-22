@@ -132,25 +132,31 @@ class HaveTheLastSay extends AbstractExercise implements
             );
         }
 
-        if (count($funcCall->getArgs()) > 2) {
+        //PHP 8.4+ deprecates relying on the default of the escape argument, so we allow it to be passed too
+        $args = array_values(array_filter(
+            $funcCall->getArgs(),
+            fn ($arg) => $arg->name === null || $arg->name->name !== 'escape'
+        ));
+
+        if (count($args) > 2) {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'You should only specify the stream and separator arguments, no others'
             );
         }
 
-        if (!isset($funcCall->getArgs()[1])) {
+        if (!isset($args[1])) {
             return Failure::fromNameAndReason($this->getName(), 'The separator argument has not been specified');
         }
 
-        if (!$funcCall->getArgs()[1]->name) {
+        if (!$args[1]->name) {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'The second positional argument should not be specified'
             );
         }
 
-        if ($funcCall->getArgs()[1]->name->name !== 'separator') {
+        if ($args[1]->name->name !== 'separator') {
             return Failure::fromNameAndReason(
                 $this->getName(),
                 'A named argument has been used, but not for the separator argument'

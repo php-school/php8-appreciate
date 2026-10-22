@@ -5,3 +5,4 @@
 /exercises/*/solution/vendor
 /test/solutions/*/*/vendor
 .phpunit.result.cache
+.phpunit.cache
