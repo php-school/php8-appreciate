@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd" colors="true" cacheDirectory=".phpunit.cache">
-  <testsuite name="My PHP Workshop Test Suite">
+  <testsuite name="PHP 8 Appreciate Test Suite">
     <directory>./test</directory>
     <exclude>./test/solutions</exclude>
   </testsuite>
