@@ -12,8 +12,7 @@ use PhpParser\Node\Stmt;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Property;
-use PhpParser\Node\Stmt\PropertyProperty;
-use PhpParser\Node\VarLikeIdentifier;
+use PhpParser\Node\PropertyItem;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FileComparisonCheck;
@@ -188,8 +187,7 @@ class TheAttributesOfSuccess extends AbstractExercise implements
                 && $node->isPublic()
                 && $node->type instanceof Identifier
                 && $node->type->name === 'string'
-                && $node->props[0] instanceof PropertyProperty
-                && $node->props[0]->name instanceof VarLikeIdentifier
+                && $node->props[0] instanceof PropertyItem
                 && $node->props[0]->name->name === 'key';
         });
 
