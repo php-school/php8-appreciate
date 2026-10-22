@@ -12,12 +12,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [8.0, 8.1, 8.2, 8.3]
+        php: ['8.2', '8.3', '8.4', '8.5']
 
     name: PHP ${{ matrix.php }}
+    timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -33,8 +34,8 @@ jobs:
       - name: Run phpunit tests
         run: |
           mkdir -p build/logs
-          PROCESS_FACTORY=host vendor/bin/phpunit
-          PROCESS_FACTORY=docker vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
+          PROCESS_FACTORY=host vendor/bin/phpunit --stop-on-error
+          PROCESS_FACTORY=docker vendor/bin/phpunit --stop-on-error
       - name: Run phpcs
         run: composer cs
 
@@ -56,7 +57,3 @@ jobs:
           chmod +x workshop-manager.phar
           ./workshop-manager.phar install php8appreciate master
           ./workshop-manager.phar installed
-
-      - name: Coverage upload
-        if: matrix.php == '8.0'
-        run: bash <(curl -s https://codecov.io/bash)
