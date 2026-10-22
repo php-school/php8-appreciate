@@ -9,9 +9,9 @@ use PhpSchool\PHP8Appreciate\Exercise\HaveTheLastSay;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class HaveTheLastSayTest extends WorkshopExerciseTest
+class HaveTheLastSayTest extends ExerciseTestCase
 {
     public function getApplication(): Application
     {

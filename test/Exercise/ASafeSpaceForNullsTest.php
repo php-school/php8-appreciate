@@ -6,9 +6,9 @@ use PhpSchool\PHP8Appreciate\Exercise\ASafeSpaceForNulls;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FileComparisonFailure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class ASafeSpaceForNullsTest extends WorkshopExerciseTest
+class ASafeSpaceForNullsTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {

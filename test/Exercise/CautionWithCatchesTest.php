@@ -7,9 +7,9 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 use PhpSchool\PHP8Appreciate\Exercise\CautionWithCatches;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class CautionWithCatchesTest extends WorkshopExerciseTest
+class CautionWithCatchesTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {

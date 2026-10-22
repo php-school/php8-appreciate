@@ -5,9 +5,9 @@ namespace PhpSchool\PHP8AppreciateTest\Exercise;
 use PhpSchool\PHP8Appreciate\Exercise\UniteTheTypes;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class UniteTheTypesTest extends WorkshopExerciseTest
+class UniteTheTypesTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {

@@ -8,9 +8,9 @@ use PhpSchool\PHP8Appreciate\Exercise\StringifyToDemystify;
 use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class StringifyToDemystifyTest extends WorkshopExerciseTest
+class StringifyToDemystifyTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {

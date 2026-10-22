@@ -8,9 +8,9 @@ use PhpSchool\PhpWorkshop\Result\Cgi\GenericFailure;
 use PhpSchool\PhpWorkshop\Result\Cgi\RequestFailure;
 use PhpSchool\PhpWorkshop\Result\Cgi\Success;
 use PhpSchool\PhpWorkshop\Result\Failure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class ThrowAnExpressionTest extends WorkshopExerciseTest
+class ThrowAnExpressionTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {

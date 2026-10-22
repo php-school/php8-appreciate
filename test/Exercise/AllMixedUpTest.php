@@ -7,9 +7,9 @@ use PhpSchool\PhpWorkshop\Application;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\FileComparisonFailure;
 use PhpSchool\PhpWorkshop\Result\FunctionRequirementsFailure;
-use PhpSchool\PhpWorkshop\TestUtils\WorkshopExerciseTest;
+use PhpSchool\PHP8AppreciateTest\ExerciseTestCase;
 
-class AllMixedUpTest extends WorkshopExerciseTest
+class AllMixedUpTest extends ExerciseTestCase
 {
     public function getExerciseClass(): string
     {
