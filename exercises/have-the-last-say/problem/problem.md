@@ -47,6 +47,8 @@ You will need to open the file for writing before using `fgetcsv` you can do tha
 
 `fgetcsv` will return *one* line at a time
 
+On PHP 8.4+ you must also pass the `escape` argument (as a named argument, e.g. `escape: ""`) to avoid a deprecation notice. This is the only extra argument allowed.
+
 You will most likely need a loop to process all the data in the file.
 
 You will need to keep reading from the file until it has been fully read. `feof` is your friend here and will inform you whether there is any data left to read.
