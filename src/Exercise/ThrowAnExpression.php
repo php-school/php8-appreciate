@@ -15,8 +15,10 @@ use PhpSchool\PhpWorkshop\Exercise\CgiExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
 use PhpSchool\PhpWorkshop\Exercise\ProvidesInitialCode;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CgiScenario;
 use PhpSchool\PhpWorkshop\Exercise\SubmissionPatchable;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Patch;
 use PhpSchool\PhpWorkshop\Result\Failure;
@@ -51,18 +53,10 @@ class ThrowAnExpression extends AbstractExercise implements
         return ExerciseType::CGI();
     }
 
-    public function getRequests(): array
-    {
-        return [
-            (new Request('GET', 'https://top-secret.com/forbidden')),
-            (new Request('GET', 'https://top-secret.com/blog'))
-        ];
-    }
-
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         /** @var If_|null $if */
         $if = (new NodeFinder())->findFirstInstanceOf($statements, If_::class);
@@ -96,5 +90,12 @@ class ThrowAnExpression extends AbstractExercise implements
     {
         return (new Patch())
             ->withTransformer(new Patch\WrapInTryCatch(\InvalidArgumentException::class));
+    }
+
+    public function defineTestScenario(): CgiScenario
+    {
+        return (new CgiScenario())
+            ->withExecution(new Request('GET', 'https://top-secret.com/forbidden'))
+            ->withExecution(new Request('GET', 'https://top-secret.com/blog'));
     }
 }
