@@ -40,6 +40,8 @@
         }
     },
     "scripts": {
+        "post-install-cmd": "@php bin/php8appreciate warm-cache",
+        "post-update-cmd": "@php bin/php8appreciate warm-cache",
         "test": [
             "@unit-tests",
             "@cs",
