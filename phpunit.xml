@@ -10,6 +10,6 @@
     </include>
   </source>
   <php>
-    <env name="PROCESS_FACTORY" value="docker" />
+    <env name="SANDBOX" value="docker" />
   </php>
 </phpunit>
