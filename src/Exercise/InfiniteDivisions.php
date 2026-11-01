@@ -12,13 +12,17 @@ use PhpParser\Node\Stmt\Catch_;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\Check\FunctionRequirementsCheck;
+use PhpSchool\PhpWorkshop\Environment\CliTestEnvironment;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\ExerciseCheck\FunctionRequirementsExerciseCheck;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
 use PhpSchool\PhpWorkshop\ExerciseDispatcher;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\RunnerContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Result\Failure;
 use PhpSchool\PhpWorkshop\Result\ResultInterface;
@@ -49,24 +53,24 @@ class InfiniteDivisions extends AbstractExercise implements
         return ExerciseType::CLI();
     }
 
-    public function configure(ExerciseDispatcher $dispatcher): void
+    public function getRequiredChecks(): array
     {
-        $dispatcher->requireCheck(FunctionRequirementsCheck::class);
+        return [FunctionRequirementsCheck::class];
     }
 
-    public function getArgs(): array
+    public function defineTestScenario(): CliScenario
     {
-        return [
-            [
+        return (new CliScenario())
+            ->withExecution([
                 (string) $this->faker->randomFloat(3, 10, 100),
                 '0'
-            ],
-            [
+            ])
+            ->withExecution([
                 (string) $this->faker->randomFloat(3, 10, 100),
                 (string) $this->faker->randomFloat(3, 0, 10)
-            ]
-        ];
+            ]);
     }
+
 
     public function getRequiredFunctions(): array
     {
@@ -78,10 +82,10 @@ class InfiniteDivisions extends AbstractExercise implements
         return [];
     }
 
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         $finder = new NodeFinder();
 

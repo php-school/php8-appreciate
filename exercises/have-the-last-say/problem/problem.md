@@ -14,7 +14,7 @@ The list of countries will be picked at random, so the CSV will be different eac
 
 When using `fgetcsv` there's a bunch of arguments which change the behaviour of the way the CSV is parsed. In our case we  want to change the `separator` argument, which defaults to a comma `,`. We need it to be the pipe `|` character. 
 
-We don't want to specify the rest of the arguments, so aside from the file pointer which is the first argument, we only want to specify the `separator` argument.
+We also want to set the `escape` argument to an empty string `""`, so a backslash `\` is read as a normal character. We don't want to specify the rest of the arguments, so aside from the file pointer which is the first argument, we only want to specify the `separator` and `escape` arguments.
 
 Named arguments are a great way to change argument default values without having to specify all the defaults again. 
 

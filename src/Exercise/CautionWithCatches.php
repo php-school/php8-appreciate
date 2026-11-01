@@ -10,12 +10,17 @@ use PhpParser\Node\Stmt\TryCatch;
 use PhpParser\NodeFinder;
 use PhpParser\Parser;
 use PhpSchool\PhpWorkshop\CodeInsertion;
+use PhpSchool\PhpWorkshop\Environment\CliTestEnvironment;
 use PhpSchool\PhpWorkshop\Exercise\AbstractExercise;
 use PhpSchool\PhpWorkshop\Exercise\CliExercise;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseInterface;
 use PhpSchool\PhpWorkshop\Exercise\ExerciseType;
+use PhpSchool\PhpWorkshop\Exercise\Scenario\CliScenario;
 use PhpSchool\PhpWorkshop\Exercise\SubmissionPatchable;
 use PhpSchool\PhpWorkshop\ExerciseCheck\SelfCheck;
+use PhpSchool\PhpWorkshop\ExerciseDispatcher;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\CliContext;
+use PhpSchool\PhpWorkshop\ExerciseRunner\Context\ExecutionContext;
 use PhpSchool\PhpWorkshop\Input\Input;
 use PhpSchool\PhpWorkshop\Patch;
 use PhpSchool\PhpWorkshop\Result\Failure;
@@ -49,16 +54,10 @@ class CautionWithCatches extends AbstractExercise implements
         return ExerciseType::CLI();
     }
 
-    public function getArgs(): array
-    {
-        $this->password = $this->faker->password();
-        return [[$this->password]];
-    }
-
-    public function check(Input $input): ResultInterface
+    public function check(ExecutionContext $context): ResultInterface
     {
         /** @var array<Stmt> $statements */
-        $statements = $this->parser->parse((string) file_get_contents($input->getRequiredArgument('program')));
+        $statements = $this->parser->parse((string) file_get_contents($context->getEntryPoint()));
 
         /** @var TryCatch|null $tryCatch */
         $tryCatch = (new NodeFinder())->findFirstInstanceOf($statements, TryCatch::class);
@@ -86,5 +85,12 @@ class CautionWithCatches extends AbstractExercise implements
         $passwordVerifyInsertion = new CodeInsertion(CodeInsertion::TYPE_BEFORE, $code);
 
         return (new Patch())->withInsertion($passwordVerifyInsertion);
+    }
+
+    public function defineTestScenario(): CliScenario
+    {
+        $this->password = $this->faker->password();
+
+        return (new CliScenario())->withExecution([$this->password]);
     }
 }

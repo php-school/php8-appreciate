@@ -20,11 +20,6 @@ class ASafeSpaceForNullsTest extends WorkshopExerciseTest
         return require __DIR__ . '/../../app/bootstrap.php';
     }
 
-    public function tearDown(): void
-    {
-        $this->removeSolutionAsset('users.csv');
-    }
-
     public function testFailureWhenAgeAccessedWithoutNullSafe(): void
     {
         $this->runExercise('no-null-safe-age.php');
@@ -73,6 +68,23 @@ class ASafeSpaceForNullsTest extends WorkshopExerciseTest
         );
     }
 
+
+    public function testFailureWhenCsvNotCorrect(): void
+    {
+        $this->runExercise('csv-wrong.php');
+
+        $this->assertVerifyWasNotSuccessful();
+
+        $this->assertResultsHasFailureAndMatches(
+            FileComparisonFailure::class,
+            function (FileComparisonFailure $failure) {
+                self::assertEquals('users.csv', $failure->getFileName());
+
+                return true;
+            }
+        );
+    }
+
     public function testFailureWhenAddressLine2AccessedWithoutNullSafe(): void
     {
         $this->runExercise('no-null-safe-address-line2.php');
@@ -94,22 +106,6 @@ class ASafeSpaceForNullsTest extends WorkshopExerciseTest
         $this->assertResultsHasFailure(
             Failure::class,
             'File: "users.csv" does not exist'
-        );
-    }
-
-    public function testFailureWhenCsvNotCorrect(): void
-    {
-        $this->runExercise('csv-wrong.php');
-
-        $this->assertVerifyWasNotSuccessful();
-
-        $this->assertResultsHasFailureAndMatches(
-            FileComparisonFailure::class,
-            function (FileComparisonFailure $failure) {
-                self::assertEquals('users.csv', $failure->getFileName());
-
-                return true;
-            }
         );
     }
 

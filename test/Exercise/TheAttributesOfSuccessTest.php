@@ -24,7 +24,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testSuccessfulSolution(): void
     {
-        $this->runExercise('correct-solution/solution.php');
+        $this->runExercise('correct-solution/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasSuccessful();
         $this->assertOutputWasCorrect();
@@ -32,7 +32,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testSuccessfulSolutionWithPromotedProperty(): void
     {
-        $this->runExercise('correct-solution-promoted/solution.php');
+        $this->runExercise('correct-solution-promoted/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasSuccessful();
         $this->assertOutputWasCorrect();
@@ -40,7 +40,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testModifyingExternalCodeFails(): void
     {
-        $this->runExercise('modified-external-code/solution.php');
+        $this->runExercise('modified-external-code/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertOutputWasCorrect();
@@ -57,7 +57,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testNotCallingDeserializeFails(): void
     {
-        $this->runExercise('no-deserialize-call/solution.php');
+        $this->runExercise('no-deserialize-call/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertOutputWasIncorrect();
@@ -73,7 +73,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testNotDumpingObjectFails(): void
     {
-        $this->runExercise('no-var-dump/solution.php');
+        $this->runExercise('no-var-dump/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertOutputWasIncorrect();
@@ -89,7 +89,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenOutputIsIncorrectComparisonFails(): void
     {
-        $this->runExercise('incorrect-output/solution.php');
+        $this->runExercise('incorrect-output/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
         $this->assertOutputWasIncorrect();
@@ -102,7 +102,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenNoClassNamedReviewDefined(): void
     {
-        $this->runExercise('no-review-class/solution.php');
+        $this->runExercise('no-review-class/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -111,7 +111,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenNoMethodNamedObfuscateReviewerDefined(): void
     {
-        $this->runExercise('no-obfuscate-method/solution.php');
+        $this->runExercise('no-obfuscate-method/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -120,7 +120,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenNoAttributeDefinedOnObfuscateReviewerMethod(): void
     {
-        $this->runExercise('no-attributes/solution.php');
+        $this->runExercise('no-attributes/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -129,7 +129,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenNoAttributedNamedObfuscateUsedOnMethod(): void
     {
-        $this->runExercise('no-attribute-named-obfuscate/solution.php');
+        $this->runExercise('no-attribute-named-obfuscate/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -141,7 +141,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenNoArgumentsPassedToObfuscateAttribute(): void
     {
-        $this->runExercise('no-arguments-obfuscate-attribute/solution.php');
+        $this->runExercise('no-arguments-obfuscate-attribute/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -153,7 +153,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenIncorrectPropertyPassedToObfuscateAttribute(): void
     {
-        $this->runExercise('invalid-arg-obfuscate-attribute/solution.php');
+        $this->runExercise('invalid-arg-obfuscate-attribute/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -165,7 +165,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateAttributeNotDefined(): void
     {
-        $this->runExercise('no-obfuscate-class/solution.php');
+        $this->runExercise('no-obfuscate-class/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -174,7 +174,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateHasNoAttributes(): void
     {
-        $this->runExercise('obfuscate-no-attributes/solution.php');
+        $this->runExercise('obfuscate-no-attributes/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -183,7 +183,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateAttributeIncorrectlyDefined(): void
     {
-        $this->runExercise('obfuscate-attribute-incorrect/solution.php');
+        $this->runExercise('obfuscate-attribute-incorrect/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -192,7 +192,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateAttributeHasNoFlags(): void
     {
-        $this->runExercise('obfuscate-attribute-no-flags/solution.php');
+        $this->runExercise('obfuscate-attribute-no-flags/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -201,7 +201,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateAttributeConfigurationIsWrong(): void
     {
-        $this->runExercise('obfuscate-attribute-wrong-target/solution.php');
+        $this->runExercise('obfuscate-attribute-wrong-target/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
@@ -213,7 +213,7 @@ class TheAttributesOfSuccessTest extends WorkshopExerciseTest
 
     public function testWhenObfuscateAttributeHasNoPublicPropertyNamedKey(): void
     {
-        $this->runExercise('no-public-property-named-key/solution.php');
+        $this->runExercise('no-public-property-named-key/solution.php', self::DIRECTORY_SOLUTION);
 
         $this->assertVerifyWasNotSuccessful();
 
